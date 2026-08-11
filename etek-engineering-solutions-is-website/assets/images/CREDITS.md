@@ -18,7 +18,9 @@ Pexels entries are identified by their photo id: the original sits at
 - `careers-studio-*.jpg|webp` - Redd F, Unsplash (`photo-1556761175-b413da4baf72`)
 - `dashboard-erp-overview-*.jpg|webp` - Luke Chesser, Unsplash (`photo-1551288049-bebda4e38f71`)
 - `engineering-team-desks-*.jpg|webp` - Alvaro Reyes, Unsplash (`photo-1531482615713-2afd69097998`)
-- `product-nippon-*.jpg|webp` - photographer unlisted, Pexels (`1887946`)
+- `product-nippon-*.jpg|webp` - supplied by ETEK. Nippon Paint brand imagery,
+  used with the client's permission. Not a placeholder: available at 800w and
+  1024w only, because that is the size of the supplied file.
 - `product-noah-depo-*.jpg|webp` - Guillaume Bolduc, Unsplash (`photo-1493946740644-2d8a1f1a6aff`)
 - `product-noah-hub-*.jpg|webp` - Ollie Craig, Pexels (`7519262`)
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
