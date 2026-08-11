@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETEK Engineering Solutions | Software, AI, ERP, Web and Mobile Solutions</title>
+<meta name="description" content="ETEK Engineering Solutions is a software engineering and technology solutions company in Kadawatha, Sri Lanka, building software, AI, ERP, web, mobile and custom digital solutions for local and international businesses.">
+<link rel="canonical" href="https://etek.lk/">
+<meta name="theme-color" content="#05668d" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#01151d" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ETEK Engineering Solutions">
+<meta property="og:title" content="ETEK Engineering Solutions | Smart Engineering. Smarter Solutions.">
+<meta property="og:description" content="Software, AI, ERP, web, mobile and custom digital solutions for businesses in Sri Lanka and internationally.">
+<meta property="og:url" content="https://etek.lk/">
+<meta property="og:image" content="assets/images/terminal-aerial-1600.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/icons/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/favicon.png">
+
+<link rel="preload" href="assets/fonts/inter-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+
+<script>
+  /* Light is the default for every first visit, whatever the operating system
+     prefers. Dark mode is opt-in through the header toggle, and the choice is
+     then remembered. Applied before first paint to avoid a flash. */
+  (function () {
+    try {
+      var stored = localStorage.getItem('etek-theme');
+      document.documentElement.dataset.theme = stored === 'dark' ? 'dark' : 'light';
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+<!-- Icon sprite, inlined from assets/icons/sprite.svg so icons also work when
+     the page is opened straight from disk. Re-inline after editing the sprite. -->
+<!-- ICON-SPRITE:START -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
+  <!-- Lucide icons (ISC licence), bundled locally. Stroke attributes are
+       applied by CSS on .icon so the sprite stays theme-aware. -->
+  <symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /> <path d="m6 8-4 4 4 4" /> <path d="m14.5 4-5 16" /></symbol>
+  <symbol id="i-brain-circuit" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M9 13a4.5 4.5 0 0 0 3-4" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M12 13h4" /> <path d="M12 18h6a2 2 0 0 1 2 2v1" /> <path d="M12 8h8" /> <path d="M16 8V5a2 2 0 0 1 2-2" /> <circle cx="16" cy="13" r=".5" /> <circle cx="18" cy="3" r=".5" /> <circle cx="20" cy="21" r=".5" /> <circle cx="20" cy="8" r=".5" /></symbol>
+  <symbol id="i-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol>
+  <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></symbol>
+  <symbol id="i-boxes" viewBox="0 0 24 24"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" /> <path d="m7 16.5-4.74-2.85" /> <path d="m7 16.5 5-3" /> <path d="M7 16.5v5.17" /> <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" /> <path d="m17 16.5-5-3" /> <path d="m17 16.5 4.74-2.85" /> <path d="M17 16.5v5.17" /> <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" /> <path d="M12 8 7.26 5.15" /> <path d="m12 8 4.74-2.85" /> <path d="M12 13.5V8" /></symbol>
+  <symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /> <path d="M7 11v4a2 2 0 0 0 2 2h4" /> <rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol>
+  <symbol id="i-message-square-quote" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M8 12a2 2 0 0 0 2-2V8H8" /> <path d="M14 12a2 2 0 0 0 2-2V8h-2" /></symbol>
+  <symbol id="i-plug-zap" viewBox="0 0 24 24"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" /> <path d="m2 22 3-3" /> <path d="M7.5 13.5 10 11" /> <path d="M10.5 16.5 13 14" /> <path d="m18 3-4 4h6l-4 4" /></symbol>
+  <symbol id="i-server-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /> <path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5" /> <path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5" /> <path d="M6 6h.01" /> <path d="M6 18h.01" /> <path d="m15.7 13.4-.9-.3" /> <path d="m9.2 10.9-.9-.3" /> <path d="m10.6 15.7.3-.9" /> <path d="m13.6 15.7-.4-1" /> <path d="m10.8 9.3-.4-1" /> <path d="m8.3 13.6 1-.4" /> <path d="m14.7 10.8 1-.4" /> <path d="m13.4 8.3-.3.9" /></symbol>
+  <symbol id="i-wand-sparkles" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /> <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76" /> <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" /> <path d="M12 10v4" /> <path d="M12 2v3" /></symbol>
+  <symbol id="i-container" viewBox="0 0 24 24"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z" /> <path d="M10 21.9V14L2.1 9.1" /> <path d="m10 14 11.9-6.9" /> <path d="M14 19.8v-8.1" /> <path d="M18 17.5V9.4" /></symbol>
+  <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z" /> <path d="M6 18h12" /> <path d="M6 14h12" /> <rect width="12" height="12" x="6" y="10" /></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" /> <path d="M4 6h.01" /> <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35" /> <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67" /> <path d="M12 18h.01" /> <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67" /> <circle cx="12" cy="12" r="2" /> <path d="m13.41 10.59 5.66-5.66" /></symbol>
+  <symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /> <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /> <path d="M12 11h4" /> <path d="M12 16h4" /> <path d="M8 11h.01" /> <path d="M8 16h.01" /></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></symbol>
+  <symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /> <polyline points="16 7 22 7 22 13" /></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol>
+  <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol>
+  <symbol id="i-pen-tool" viewBox="0 0 24 24"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" /> <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" /> <path d="m2.3 2.3 7.286 7.286" /> <circle cx="11" cy="11" r="2" /></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9" /> <path d="m18 15 4-4" /> <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></symbol>
+  <symbol id="i-flask-conical" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" /> <path d="M8.5 2h7" /> <path d="M7 16h10" /></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /> <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /> <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /> <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /> <path d="M15 5.764v15" /> <path d="M9 3.236v15" /></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /> <rect width="20" height="14" x="2" y="6" rx="2" /></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+  <symbol id="i-building-2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /> <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /> <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /> <path d="M10 6h4" /> <path d="M10 10h4" /> <path d="M10 14h4" /> <path d="M10 18h4" /></symbol>
+  <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol>
+  <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></symbol>
+  <symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1" /> <rect x="6" y="4" width="4" height="16" rx="1" /></symbol>
+  <symbol id="i-rotate-3d" viewBox="0 0 24 24"><path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" /> <path d="m15.194 13.707 3.814 1.86-1.86 3.814" /> <path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" /></symbol>
+  <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol>
+  <symbol id="i-circle-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="1" /></symbol>
+  <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /> <path d="M11 8v6" /> <path d="M8 11h6" /></symbol>
+  <symbol id="i-zoom-out" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /> <path d="M8 11h6" /></symbol>
+  <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol>
+</svg>
+<!-- ICON-SPRITE:END -->
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <!-- LOGO SLOT: swap assets/images/etek-logo.png (light) and
+         assets/images/etek-logo-dark.png (dark) to change the logo. -->
+    <a class="logo-slot" href="#top" aria-label="ETEK Engineering Solutions, home">
+      <img class="logo-slot__light" src="assets/images/etek-logo.png" alt="ETEK Engineering Solutions" width="389" height="240">
+      <img class="logo-slot__dark" src="assets/images/etek-logo-dark.png" alt="" width="389" height="240">
+    </a>
+
+    <!-- Menu targets are in-page anchors while the home page is the only page
+         built. They become services.html, products.html, and so on. -->
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a class="site-nav__link" href="#top" aria-current="page">Home</a>
+      <a class="site-nav__link" href="#services">Services</a>
+      <a class="site-nav__link" href="#products">Products</a>
+      <a class="site-nav__link" href="#careers">Careers</a>
+      <a class="site-nav__link" href="#about">About</a>
+      <a class="site-nav__link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon theme-toggle__sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        <svg class="icon theme-toggle__moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+      </button>
+      <a class="btn btn--primary site-header__cta" href="#contact">
+        Start Your Project
+        <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon nav-toggle__open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon nav-toggle__close" aria-hidden="true"><use href="#i-x"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==================================================================
+       1. Hero
+       ================================================================== -->
+  <section class="hero" id="top">
+    <div class="mesh" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <p class="badge badge--announcement">
+          <span class="badge__dot" aria-hidden="true"></span>
+          ETEK products: Noah Depo, Noah Port, Noah Hub, Nippon
+        </p>
+
+        <h1 class="hero__title">Smart engineering.<br><em>Smarter solutions.</em></h1>
+
+        <p class="lead hero__lead">
+          ETEK Engineering Solutions is a software engineering and technology solutions
+          company. We build software, AI, ERP, web, mobile and custom digital solutions
+          for businesses.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#contact">
+            Start Your Project
+            <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+          <a class="btn btn--secondary btn--lg" href="tel:+94773647155">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+            Talk to Our Experts
+          </a>
+        </div>
+
+        <ul class="hero__reassure">
+          <li>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+            Kadawatha, Sri Lanka
+          </li>
+          <li>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-globe"></use></svg>
+            Local and international clients
+          </li>
+          <li>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"></use></svg>
+            Open 9:00 A.M. – 9:00 P.M.
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__frame browser">
+          <div class="browser__bar" aria-hidden="true">
+            <div class="browser__dots"><span></span><span></span><span></span></div>
+            <p class="browser__address">etek.lk</p>
+          </div>
+          <div class="browser__viewport">
+            <picture>
+              <source type="image/webp" srcset="assets/images/dashboard-erp-overview-800.webp 800w, assets/images/dashboard-erp-overview-1600.webp 1600w" sizes="(max-width: 64rem) 92vw, 46vw">
+              <img src="assets/images/dashboard-erp-overview-1600.jpg" srcset="assets/images/dashboard-erp-overview-800.jpg 800w, assets/images/dashboard-erp-overview-1600.jpg 1600w" sizes="(max-width: 64rem) 92vw, 46vw" width="1600" height="1081" alt="Illustrative business dashboard showing operational charts and reporting data." fetchpriority="high" decoding="async">
+            </picture>
+          </div>
+        </div>
+
+        <p class="float-chip hero__chip--tracking">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-radar"></use></svg>
+          Real-time tracking
+        </p>
+        <p class="float-chip hero__chip--reporting">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-clipboard-list"></use></svg>
+          Operational reporting
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       Product marks band
+       ================================================================== -->
+  <section class="marks" aria-labelledby="marks-label">
+    <div class="container">
+      <p class="marks__label" id="marks-label">Operational products engineered by ETEK</p>
+      <div class="marquee">
+        <div class="marquee__track">
+          <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
+          <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>Nippon</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>Nippon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       2. What we do - bento grid
+       ================================================================== -->
+  <section class="section" id="what-we-do" aria-labelledby="what-we-do-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">What we do</p>
+          <h2 id="what-we-do-title">Engineering capability across the systems your business runs on</h2>
+        </div>
+        <p class="lead section-head__aside">
+          Software, AI, ERP, web and mobile solutions, built for how your business
+          actually operates.
+        </p>
+      </div>
+
+      <div class="bento">
+        <article class="card card--interactive bento__item--lead">
+          <div class="bento__lead-copy">
+            <span class="icon-tile icon-tile--accent">
+              <svg class="icon" aria-hidden="true"><use href="#i-code-xml"></use></svg>
+            </span>
+            <h3 class="card__title">Software Solutions</h3>
+            <p class="card__text">
+              Custom software and business systems designed around your requirements,
+              from a single workflow to a system your whole operation depends on.
+            </p>
+            <p class="badge badge--soft">Custom System Development</p>
+          </div>
+          <div class="bento__lead-media">
+            <picture>
+              <source type="image/webp" srcset="assets/images/capability-software-800.webp 800w, assets/images/capability-software-1600.webp 1600w" sizes="(max-width: 46rem) 92vw, 30vw">
+              <img src="assets/images/capability-software-800.jpg" srcset="assets/images/capability-software-800.jpg 800w, assets/images/capability-software-1600.jpg 1600w" sizes="(max-width: 46rem) 92vw, 30vw" width="1600" height="1065" alt="Developer writing code on a laptop at a desk." loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </article>
+
+        <article class="card card--interactive bento__item--tall">
+          <div class="card__media">
+            <picture>
+              <source type="image/webp" srcset="assets/images/capability-ai-800.webp 800w, assets/images/capability-ai-1600.webp 1600w" sizes="(max-width: 46rem) 92vw, 22vw">
+              <img src="assets/images/capability-ai-800.jpg" srcset="assets/images/capability-ai-800.jpg 800w, assets/images/capability-ai-1600.jpg 1600w" sizes="(max-width: 46rem) 92vw, 22vw" width="1600" height="898" alt="Abstract view of server infrastructure lit in green." loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="card__body">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-brain-circuit"></use></svg>
+            </span>
+            <h3 class="card__title">AI Solutions</h3>
+            <p class="card__text">
+              Bringing AI into business processes, for teams that want to move from
+              manual decisions to systems that support them.
+            </p>
+          </div>
+        </article>
+
+        <article class="card card--interactive bento__item">
+          <span class="icon-tile">
+            <svg class="icon" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg>
+          </span>
+          <h3 class="card__title">ERP Solutions</h3>
+          <p class="card__text">
+            Enterprise ERP systems that bring operational data, workflows and
+            reporting together in one place.
+          </p>
+        </article>
+
+        <article class="card card--interactive bento__item">
+          <span class="icon-tile">
+            <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+          </span>
+          <h3 class="card__title">Web Development</h3>
+          <p class="card__text">
+            Websites and web applications built for business use, not just for
+            looking at.
+          </p>
+        </article>
+
+        <article class="card card--interactive bento__item">
+          <span class="icon-tile">
+            <svg class="icon" aria-hidden="true"><use href="#i-smartphone"></use></svg>
+          </span>
+          <h3 class="card__title">Mobile Application Development</h3>
+          <p class="card__text">
+            Mobile applications that extend your systems and data to phones and
+            tablets.
+          </p>
+        </article>
+
+        <article class="card card--interactive bento__item">
+          <span class="icon-tile">
+            <svg class="icon" aria-hidden="true"><use href="#i-plug-zap"></use></svg>
+          </span>
+          <h3 class="card__title">System Integration</h3>
+          <p class="card__text">
+            Connecting the systems you already run so your processes and data stop
+            living in separate places.
+          </p>
+        </article>
+      </div>
+
+      <div class="cluster" style="margin-block-start: var(--space-8);">
+        <p class="text-muted" style="font-size: var(--text-base);">Also offered:</p>
+        <span class="badge">Business Process Automation</span>
+        <span class="badge">Cloud Solutions</span>
+        <span class="badge">UI/UX Design</span>
+        <span class="badge">Software Consulting</span>
+        <span class="badge">Custom System Development</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       3. Core services - tabs
+       ================================================================== -->
+  <section class="section section--sunken section--hairline-top" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Our core services</p>
+        <h2 id="services-title">Core services, engineered around your requirements</h2>
+        <p class="lead" style="margin-block-start: var(--space-5);">
+          Three of the services businesses come to ETEK for. Select one to see what
+          it covers.
+        </p>
+      </div>
+
+      <div class="tabs services__tabs">
+        <div class="tabs__list" role="tablist" aria-label="Core services">
+          <button class="tabs__tab" type="button" role="tab" id="tab-erp" aria-controls="panel-erp" aria-selected="true">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg>
+            </span>
+            <span>
+              <span class="tabs__tab-title">Enterprise ERP Solutions</span>
+              <span class="tabs__tab-hint">Connect processes, data and reporting</span>
+            </span>
+            <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+          </button>
+
+          <button class="tabs__tab" type="button" role="tab" id="tab-offshore" aria-controls="panel-offshore" aria-selected="false" tabindex="-1">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+            </span>
+            <span>
+              <span class="tabs__tab-title">Global Offshore Software Development</span>
+              <span class="tabs__tab-hint">Engineering capacity for international businesses</span>
+            </span>
+            <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+          </button>
+
+          <button class="tabs__tab" type="button" role="tab" id="tab-builder" aria-controls="panel-builder" aria-selected="false" tabindex="-1">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-wand-sparkles"></use></svg>
+            </span>
+            <span>
+              <span class="tabs__tab-title">Autonomous Website &amp; System Builder</span>
+              <span class="tabs__tab-hint">Websites and business systems, built for you</span>
+            </span>
+            <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+          </button>
+        </div>
+
+        <div class="tabs__panels">
+          <div class="tabs__panel service-panel" id="panel-erp" role="tabpanel" aria-labelledby="tab-erp" tabindex="0">
+            <div class="service-panel__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/capability-erp-800.webp 800w, assets/images/capability-erp-1600.webp 1600w" sizes="(max-width: 62rem) 92vw, 56vw">
+                <img src="assets/images/capability-erp-800.jpg" srcset="assets/images/capability-erp-800.jpg 800w, assets/images/capability-erp-1600.jpg 1600w" sizes="(max-width: 62rem) 92vw, 56vw" width="1600" height="1140" alt="Laptop showing business analytics charts on a desk." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse service-panel__badge">Service 01</p>
+            </div>
+            <div class="service-panel__body">
+              <h3 class="service-panel__title">Enterprise ERP Solutions</h3>
+              <p class="card__text">
+                A custom ERP system built around your business processes, rather than
+                asking your operation to fit someone else's template. ETEK develops ERP
+                solutions that bring operational data, workflows and reporting together
+                so the business can be managed from one place.
+              </p>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Custom ERP system development</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Business process and workflow mapping</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Operational data and reporting in one system</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Integration with the systems you already run</li>
+              </ul>
+              <a class="link-cta" href="#contact">
+                Discuss an ERP requirement
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="tabs__panel service-panel" id="panel-offshore" role="tabpanel" aria-labelledby="tab-offshore" tabindex="0" hidden>
+            <div class="service-panel__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/service-offshore-800.webp 800w, assets/images/service-offshore-1600.webp 1600w" sizes="(max-width: 62rem) 92vw, 56vw">
+                <img src="assets/images/service-offshore-800.jpg" srcset="assets/images/service-offshore-800.jpg 800w, assets/images/service-offshore-1600.jpg 1600w" sizes="(max-width: 62rem) 92vw, 56vw" width="1600" height="1067" alt="Software team working together around laptops." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse service-panel__badge">Service 02</p>
+            </div>
+            <div class="service-panel__body">
+              <h3 class="service-panel__title">Global Offshore Software Development</h3>
+              <p class="card__text">
+                ETEK develops software for international clients as well as businesses
+                in Sri Lanka. If you need engineering capacity for a new product or an
+                existing system, we can take on the build.
+              </p>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Software development for international clients</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Web, mobile and custom system delivery</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Software consulting on scope and approach</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Cloud solutions and system integration</li>
+              </ul>
+              <a class="link-cta" href="#contact">
+                Talk about offshore development
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="tabs__panel service-panel" id="panel-builder" role="tabpanel" aria-labelledby="tab-builder" tabindex="0" hidden>
+            <div class="service-panel__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/service-builder-800.webp 800w, assets/images/service-builder-1600.webp 1600w" sizes="(max-width: 62rem) 92vw, 56vw">
+                <img src="assets/images/service-builder-800.jpg" srcset="assets/images/service-builder-800.jpg 800w, assets/images/service-builder-1600.jpg 1600w" sizes="(max-width: 62rem) 92vw, 56vw" width="1600" height="1066" alt="Designer sketching interface wireframes on paper." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse service-panel__badge">Service 03</p>
+            </div>
+            <div class="service-panel__body">
+              <h3 class="service-panel__title">Autonomous Website &amp; System Builder</h3>
+              <p class="card__text">
+                An ETEK service for businesses that need a website or a business system
+                built for them. Scope, design and delivery are confirmed with you before
+                a project starts.
+              </p>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Website and web application builds</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Business system builds</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>UI/UX design</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Business process automation</li>
+              </ul>
+              <a class="link-cta" href="#contact">
+                Ask what it covers
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cluster" style="margin-block-start: var(--space-10); justify-content: center;">
+        <a class="btn btn--secondary btn--lg" href="#what-we-do">
+          View All Services
+          <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       4. Products - full-bleed ink section with the 3D container vessel
+       ================================================================== -->
+  <section class="section section--lg section--ink products" id="products" aria-labelledby="products-title">
+    <div class="mesh products__mesh" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Our products</p>
+        <h2 id="products-title">Operational software, built by ETEK</h2>
+      </div>
+
+      <div class="products__stage">
+        <div class="vessel" id="vessel">
+          <canvas class="vessel__canvas" id="vessel-canvas" role="img" aria-label="Interactive 3D model of a container vessel loaded with stacked shipping containers at sea, which visitors can drag to rotate."></canvas>
+          <div class="vessel__fallback" aria-hidden="true">
+            <picture>
+              <source type="image/webp" srcset="assets/images/vessel-container-ship-800.webp 800w, assets/images/vessel-container-ship-1600.webp 1600w" sizes="(max-width: 64rem) 92vw, 42vw">
+              <img src="assets/images/vessel-container-ship-800.jpg" srcset="assets/images/vessel-container-ship-800.jpg 800w, assets/images/vessel-container-ship-1600.jpg 1600w" sizes="(max-width: 64rem) 92vw, 42vw" width="1600" height="1066" alt="" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="vessel__controls">
+            <button class="vessel__control" type="button" data-vessel-action="zoom-in" title="Zoom in" aria-label="Zoom in on the container vessel">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-zoom-in"></use></svg>
+            </button>
+            <button class="vessel__control" type="button" data-vessel-action="zoom-out" title="Zoom out" aria-label="Zoom out from the container vessel">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-zoom-out"></use></svg>
+            </button>
+            <button class="vessel__control" type="button" data-vessel-action="reset" title="Reset the view" aria-label="Reset the container vessel view">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-rotate-ccw"></use></svg>
+            </button>
+          </div>
+          <p class="vessel__hint">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-rotate-3d"></use></svg>
+            Drag to rotate
+          </p>
+        </div>
+
+        <div class="products__stage-copy">
+          <h3 style="font-size: var(--text-3xl);">Built for port and container depot operations</h3>
+          <p class="lead" style="margin-block-start: var(--space-4);">
+            Noah Port and Noah Depo are ETEK products for vessel, cargo and container
+            operations: container management, operational planning, real-time tracking
+            and reporting.
+          </p>
+          <ul class="feature-list" style="margin-block-start: var(--space-6);">
+            <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Vessel and cargo operations</li>
+            <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Container tracking and inventory management</li>
+            <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Operational workflows and planning</li>
+            <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Real-time information and reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="carousel" id="products-carousel">
+        <h3 class="visually-hidden" id="product-list-title">The ETEK product range</h3>
+        <div class="carousel__viewport" id="products-viewport" tabindex="0" role="group" aria-labelledby="product-list-title">
+          <article class="card card--inverse product-card carousel__slide">
+            <div class="product-card__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/product-noah-port-800.webp 800w, assets/images/product-noah-port-1600.webp 1600w" sizes="(max-width: 46rem) 84vw, 27rem">
+                <img src="assets/images/product-noah-port-800.jpg" srcset="assets/images/product-noah-port-800.jpg 800w, assets/images/product-noah-port-1600.jpg 1600w" sizes="(max-width: 46rem) 84vw, 27rem" width="1600" height="1066" alt="Quay cranes and stacked containers at a working port terminal." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse product-card__tag">Port operations</p>
+            </div>
+            <div class="product-card__body">
+              <h4 class="product-card__title">Noah Port</h4>
+              <p class="product-card__text">
+                A software solution for port operations, covering vessel and cargo
+                operations, container management, operational planning, real-time
+                tracking and reporting.
+              </p>
+              <p class="product-card__meta">Vessel &amp; cargo operations</p>
+            </div>
+          </article>
+
+          <article class="card card--inverse product-card carousel__slide">
+            <div class="product-card__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/product-noah-depo-800.webp 800w, assets/images/product-noah-depo-1600.webp 1600w" sizes="(max-width: 46rem) 84vw, 27rem">
+                <img src="assets/images/product-noah-depo-800.jpg" srcset="assets/images/product-noah-depo-800.jpg 800w, assets/images/product-noah-depo-1600.jpg 1600w" sizes="(max-width: 46rem) 84vw, 27rem" width="1600" height="1043" alt="Stacked shipping containers in a container yard." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse product-card__tag">Container depot</p>
+            </div>
+            <div class="product-card__body">
+              <h4 class="product-card__title">Noah Depo</h4>
+              <p class="product-card__text">
+                A digital solution for container depot operations, including container
+                tracking, inventory management, operational workflows, real-time
+                information and reporting.
+              </p>
+              <p class="product-card__meta">Container tracking &amp; inventory</p>
+            </div>
+          </article>
+
+          <article class="card card--inverse product-card carousel__slide">
+            <div class="product-card__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/product-noah-hub-800.webp 800w, assets/images/product-noah-hub-1600.webp 1600w" sizes="(max-width: 46rem) 84vw, 27rem">
+                <img src="assets/images/product-noah-hub-800.jpg" srcset="assets/images/product-noah-hub-800.jpg 800w, assets/images/product-noah-hub-1600.jpg 1600w" sizes="(max-width: 46rem) 84vw, 27rem" width="1600" height="1067" alt="Aerial view of a port hub, with container stacks, quay cranes and berths along the waterfront." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse product-card__tag">Port platform</p>
+            </div>
+            <div class="product-card__body">
+              <h4 class="product-card__title">Noah Hub</h4>
+              <p class="product-card__text">
+                A port operations platform built for use by ports worldwide. Noah Hub
+                runs the complete cycle in a single system, from vessel booking through
+                to container release in the yard.
+              </p>
+              <p class="product-card__meta">Vessel booking to yard release</p>
+            </div>
+          </article>
+
+          <article class="card card--inverse product-card carousel__slide">
+            <div class="product-card__media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/product-nippon-800.webp 800w, assets/images/product-nippon-1600.webp 1600w" sizes="(max-width: 46rem) 84vw, 27rem">
+                <img src="assets/images/product-nippon-800.jpg" srcset="assets/images/product-nippon-800.jpg 800w, assets/images/product-nippon-1600.jpg 1600w" sizes="(max-width: 46rem) 84vw, 27rem" width="1600" height="1067" alt="Open tubs of paint in a range of colours, ready for mixing and filling." loading="lazy" decoding="async">
+              </picture>
+              <p class="badge badge--inverse product-card__tag">ERP delivery</p>
+            </div>
+            <div class="product-card__body">
+              <h4 class="product-card__title">Nippon</h4>
+              <p class="product-card__text">
+                An ERP system engineered by ETEK for a Sri Lankan paint company,
+                bringing its day-to-day business operations together in one platform.
+              </p>
+              <p class="product-card__meta">ERP for the paint industry</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel__controls">
+          <button class="carousel__btn" type="button" id="products-prev" aria-label="Previous product">
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+          </button>
+          <button class="carousel__btn" type="button" id="products-next" aria-label="Next product">
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+          </button>
+          <div class="carousel__progress" role="presentation">
+            <div class="carousel__progress-bar" id="products-progress"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products__footer">
+        <p class="text-muted measure" style="font-size: var(--text-base);">
+          ETEK's products were built for real operational requirements, which is also
+          how we approach client projects.
+        </p>
+        <a class="btn btn--inverse btn--lg" href="#contact">
+          Explore Products
+          <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       5. Why ETEK - sticky media beside an accordion
+       ================================================================== -->
+  <section class="section section--lg" id="why" aria-labelledby="why-title">
+    <div class="container why">
+      <div class="why__media">
+        <div class="why__media-frame">
+          <picture>
+            <source type="image/webp" srcset="assets/images/engineering-team-desks-800.webp 800w, assets/images/engineering-team-desks-1600.webp 1600w" sizes="(max-width: 62rem) 92vw, 42vw">
+            <img src="assets/images/engineering-team-desks-800.jpg" srcset="assets/images/engineering-team-desks-800.jpg 800w, assets/images/engineering-team-desks-1600.jpg 1600w" sizes="(max-width: 62rem) 92vw, 42vw" width="1600" height="1066" alt="Engineers working at desks with multiple monitors in a software office." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="why__overlay">
+          <p class="why__overlay-title">Proven in our own products</p>
+          <p class="why__overlay-text">
+            Noah Depo and Noah Port were built by ETEK for real operational
+            requirements, not as demonstrations.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Why ETEK</p>
+        <h2 id="why-title">Engineering decisions made for the business, not the brochure</h2>
+        <p class="lead" style="margin-block: var(--space-5) var(--space-8);">
+          Most businesses ask us the same questions before starting: will it fit how we
+          work, will it stay reliable, and will it still suit us as we grow.
+        </p>
+
+        <div class="accordion" id="why-accordion">
+          <details class="accordion__item" open>
+            <summary class="accordion__summary">
+              <span class="icon-tile">
+                <svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>
+              </span>
+              <span>Business-focused engineering</span>
+              <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+            </summary>
+            <div class="accordion__content">
+              When a customer chooses ETEK instead of the alternative, they are choosing
+              business-focused engineering and technology solutions designed around their
+              actual requirements.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">
+              <span class="icon-tile">
+                <svg class="icon" aria-hidden="true"><use href="#i-trending-up"></use></svg>
+              </span>
+              <span>Scalable solutions</span>
+              <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+            </summary>
+            <div class="accordion__content">
+              A system that fits today but not next year is a problem deferred, not
+              solved. ETEK builds solutions intended to keep working as your operation
+              and data grow.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">
+              <span class="icon-tile">
+                <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+              </span>
+              <span>Integrated systems</span>
+              <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+            </summary>
+            <div class="accordion__content">
+              Disconnected systems create manual work and unreliable data. ETEK provides
+              system integration so your business processes and the tools you already
+              run connect properly.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">
+              <span class="icon-tile">
+                <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+              </span>
+              <span>Practical digital solutions</span>
+              <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+            </summary>
+            <div class="accordion__content">
+              Replacing inefficient manual processes with digital workflows and business
+              process automation, in software the people doing the work can actually
+              use.
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">
+              <span class="icon-tile">
+                <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+              </span>
+              <span>Local and international business support</span>
+              <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+            </summary>
+            <div class="accordion__content">
+              Based in Kadawatha, Sri Lanka, ETEK provides software engineering and
+              technology solutions for both local and international businesses.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       6. How we work - timeline rail
+       ================================================================== -->
+  <section class="section section--sunken process" id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow" style="justify-content: center;">How we work</p>
+        <h2 id="process-title">A delivery process you can follow from start to live</h2>
+      </div>
+
+      <ol class="process__grid">
+        <li class="step">
+          <span class="step__num">Requirements</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-search"></use></svg>
+            Understand
+          </h3>
+          <p class="step__text">
+            We start with your requirements, your current processes and the problem
+            you actually need solved.
+          </p>
+        </li>
+        <li class="step">
+          <span class="step__num">Scope</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-clipboard-list"></use></svg>
+            Plan
+          </h3>
+          <p class="step__text">
+            Scope, priorities and how the solution fits alongside the systems you
+            already run.
+          </p>
+        </li>
+        <li class="step">
+          <span class="step__num">Blueprint</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-pen-tool"></use></svg>
+            Design
+          </h3>
+          <p class="step__text">
+            System and interface design, so the solution is clear to the people who
+            will use it every day.
+          </p>
+        </li>
+        <li class="step">
+          <span class="step__num">Build</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-hammer"></use></svg>
+            Develop
+          </h3>
+          <p class="step__text">
+            Engineering the solution, with your business processes driving how it is
+            built.
+          </p>
+        </li>
+        <li class="step">
+          <span class="step__num">Verification</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-flask-conical"></use></svg>
+            Test
+          </h3>
+          <p class="step__text">
+            Checking the system against the requirements before it goes anywhere near
+            live operations.
+          </p>
+        </li>
+        <li class="step">
+          <span class="step__num">Go live</span>
+          <h3 class="step__title">
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-rocket"></use></svg>
+            Deploy
+          </h3>
+          <p class="step__text">
+            Putting the solution into use, ready to keep working as the business
+            changes.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       7. Careers
+       ================================================================== -->
+  <section class="section section--lg" id="careers" aria-labelledby="careers-title">
+    <div class="container careers">
+      <div>
+        <p class="eyebrow">Careers</p>
+        <h2 id="careers-title">Work on software that businesses depend on</h2>
+        <p class="lead" style="margin-block-start: var(--space-5);">
+          ETEK Engineering Solutions is a software engineering team in Kadawatha, Sri
+          Lanka, working on ERP, AI, web, mobile and custom system projects for local
+          and international businesses.
+        </p>
+
+        <ul class="careers__points">
+          <li>
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+            </span>
+            <span>
+              <span class="careers__point-title">Work across disciplines</span>
+              <span class="careers__point-text">
+                Projects span ERP, AI, web, mobile, cloud, UI/UX design and system
+                integration.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-boxes"></use></svg>
+            </span>
+            <span>
+              <span class="careers__point-title">Products as well as projects</span>
+              <span class="careers__point-text">
+                ETEK builds its own operational products, including Noah Depo and Noah
+                Port.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+            </span>
+            <span>
+              <span class="careers__point-title">Local and international work</span>
+              <span class="careers__point-text">
+                Our clients are businesses in Sri Lanka and overseas, so the work is not
+                limited to one market.
+              </span>
+            </span>
+          </li>
+        </ul>
+
+        <div class="cluster" style="margin-block-start: var(--space-8);">
+          <a class="btn btn--primary btn--lg" href="#contact">
+            View Careers
+            <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+          <a class="btn btn--secondary btn--lg" href="mailto:info@etek.lk?subject=Careers%20at%20ETEK">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"></use></svg>
+            info@etek.lk
+          </a>
+        </div>
+        <p class="text-muted" style="margin-block-start: var(--space-4); font-size: var(--text-base);">
+          Open roles will be listed on the Careers page.
+        </p>
+      </div>
+
+      <div class="careers__collage">
+        <p class="badge careers__collage-badge">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+          Careers at ETEK
+        </p>
+        <picture class="careers__collage-item--a">
+          <source type="image/webp" srcset="assets/images/careers-studio-800.webp 800w, assets/images/careers-studio-1600.webp 1600w" sizes="(max-width: 62rem) 44vw, 20vw">
+          <img src="assets/images/careers-studio-800.jpg" srcset="assets/images/careers-studio-800.jpg 800w, assets/images/careers-studio-1600.jpg 1600w" sizes="(max-width: 62rem) 44vw, 20vw" width="1600" height="1200" alt="Software team working at a long shared desk in an open studio." loading="lazy" decoding="async">
+        </picture>
+        <picture class="careers__collage-item--b">
+          <source type="image/webp" srcset="assets/images/careers-collaboration-800.webp 800w, assets/images/careers-collaboration-1600.webp 1600w" sizes="(max-width: 62rem) 44vw, 20vw">
+          <img src="assets/images/careers-collaboration-800.jpg" srcset="assets/images/careers-collaboration-800.jpg 800w, assets/images/careers-collaboration-1600.jpg 1600w" sizes="(max-width: 62rem) 44vw, 20vw" width="1600" height="1066" alt="Two colleagues celebrating progress at a laptop." loading="lazy" decoding="async">
+        </picture>
+        <picture class="careers__collage-item--c">
+          <source type="image/webp" srcset="assets/images/careers-review-800.webp 800w, assets/images/careers-review-1600.webp 1600w" sizes="(max-width: 62rem) 44vw, 20vw">
+          <img src="assets/images/careers-review-800.jpg" srcset="assets/images/careers-review-800.jpg 800w, assets/images/careers-review-1600.jpg 1600w" sizes="(max-width: 62rem) 44vw, 20vw" width="1600" height="1050" alt="Team discussing work around a meeting table." loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       8. About ETEK - offset media stack
+       ================================================================== -->
+  <section class="section section--lg section--sunken" id="about" aria-labelledby="about-title">
+    <div class="container about">
+      <div class="about__stack">
+        <picture>
+          <source type="image/webp" srcset="assets/images/about-office-800.webp 800w, assets/images/about-office-1600.webp 1600w" sizes="(max-width: 62rem) 92vw, 44vw">
+          <img class="about__stack-main" src="assets/images/about-office-800.jpg" srcset="assets/images/about-office-800.jpg 800w, assets/images/about-office-1600.jpg 1600w" sizes="(max-width: 62rem) 92vw, 44vw" width="1600" height="1068" alt="Modern office interior with glass meeting rooms." loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="assets/images/about-workshop-800.webp 800w, assets/images/about-workshop-1600.webp 1600w" sizes="(max-width: 62rem) 54vw, 25vw">
+          <img class="about__stack-inset" src="assets/images/about-workshop-800.jpg" srcset="assets/images/about-workshop-800.jpg 800w, assets/images/about-workshop-1600.jpg 1600w" sizes="(max-width: 62rem) 54vw, 25vw" width="1600" height="1066" alt="Team mapping out a plan with notes on a wall." loading="lazy" decoding="async">
+        </picture>
+      </div>
+
+      <div>
+        <p class="eyebrow">About ETEK</p>
+        <h2 id="about-title">A software engineering company built around business requirements</h2>
+        <p class="lead" style="margin-block-start: var(--space-5);">
+          ETEK Engineering Solutions builds software, AI, ERP, web, mobile and custom
+          digital solutions for businesses. Alongside client projects, we develop our
+          own operational products.
+        </p>
+        <p class="text-muted" style="margin-block-start: var(--space-4);">
+          Our approach is business-focused engineering: understand the operation first,
+          then build technology around the requirements that actually matter, in a way
+          that stays useful as the business changes.
+        </p>
+
+        <dl class="about__facts">
+          <div class="about__fact">
+            <dt class="about__fact-label">Based in</dt>
+            <dd class="about__fact-value">Kadawatha, Sri Lanka</dd>
+          </div>
+          <div class="about__fact">
+            <dt class="about__fact-label">Clients</dt>
+            <dd class="about__fact-value">Local and international businesses</dd>
+          </div>
+          <div class="about__fact">
+            <dt class="about__fact-label">Products</dt>
+            <dd class="about__fact-value">Noah Depo, Noah Port, Noah Hub, Nippon</dd>
+          </div>
+          <div class="about__fact">
+            <dt class="about__fact-label">Open</dt>
+            <dd class="about__fact-value">9:00 A.M. – 9:00 P.M.</dd>
+          </div>
+        </dl>
+
+        <div class="cluster" style="margin-block-start: var(--space-8);">
+          <a class="btn btn--secondary btn--lg" href="#why">
+            Learn More About Us
+            <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       9. Let's build your solution - full-bleed CTA
+       ================================================================== -->
+  <section class="build-cta" id="build" aria-labelledby="build-title">
+    <div class="build-cta__bg" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="assets/images/terminal-aerial-800.webp 800w, assets/images/terminal-aerial-1600.webp 1600w" sizes="100vw">
+        <img src="assets/images/terminal-aerial-1600.jpg" srcset="assets/images/terminal-aerial-800.jpg 800w, assets/images/terminal-aerial-1600.jpg 1600w" sizes="100vw" width="1600" height="1067" alt="" loading="lazy" decoding="async">
+      </picture>
+    </div>
+
+    <div class="container build-cta__inner">
+      <div>
+        <p class="badge badge--inverse">
+          <span class="badge__dot" aria-hidden="true"></span>
+          Start a conversation
+        </p>
+        <h2 id="build-title" style="margin-block-start: var(--space-5);">Let's build your solution</h2>
+        <p class="build-cta__lead">
+          Tell us what your business needs to do differently. We will work through the
+          requirement with you and set out how ETEK would approach it.
+        </p>
+        <div class="build-cta__actions" style="margin-block-start: var(--space-8);">
+          <a class="btn btn--inverse btn--lg" href="#contact">
+            Start Your Project
+            <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+          <a class="btn btn--outline-inverse btn--lg" href="tel:+94773647155">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+            Talk to Our Experts
+          </a>
+        </div>
+      </div>
+
+      <dl class="build-cta__aside">
+        <div>
+          <dt>Call</dt>
+          <dd><a href="tel:+94773647155">+94 773 647 155</a></dd>
+        </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/94773647155" target="_blank" rel="noopener">+94 773 647 155</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:info@etek.lk">info@etek.lk</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       10. Contact
+       ================================================================== -->
+  <section class="section section--lg" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Talk to ETEK about your requirement</h2>
+        </div>
+        <p class="lead section-head__aside">
+          Call, message on WhatsApp or email us. We are open every day from
+          9:00 A.M. to 9:00 P.M.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact__tiles">
+          <div class="contact-tile contact__tile--wide">
+            <span class="icon-tile icon-tile--accent">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+            </span>
+            <div>
+              <p class="contact-tile__label">Phone</p>
+              <div class="contact-tile__value">
+                <a href="tel:+94773647155">+94 773 647 155</a>
+                <a href="tel:+94704456010">+94 704 456 010</a>
+                <a href="tel:+94702608202">+94 702 608 202</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-tile">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg>
+            </span>
+            <div>
+              <p class="contact-tile__label">WhatsApp</p>
+              <div class="contact-tile__value">
+                <a href="https://wa.me/94773647155" target="_blank" rel="noopener">+94 773 647 155</a>
+              </div>
+              <p class="contact-tile__note">Message us with your requirement.</p>
+            </div>
+          </div>
+
+          <div class="contact-tile">
+            <span class="icon-tile">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+            </span>
+            <div>
+              <p class="contact-tile__label">Email</p>
+              <div class="contact-tile__value">
+                <a href="mailto:info@etek.lk">info@etek.lk</a>
+              </div>
+              <p class="contact-tile__note">For projects, products and careers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__panel">
+          <h3>Visit or write to us</h3>
+          <address>
+            78/2/G Pahala,<br>
+            Imbulgoda,<br>
+            Kadawatha, Sri Lanka
+          </address>
+          <a class="btn btn--outline-inverse" href="https://www.google.com/maps/search/?api=1&amp;query=78%2F2%2FG+Pahala%2C+Imbulgoda%2C+Kadawatha%2C+Sri+Lanka" target="_blank" rel="noopener">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-navigation"></use></svg>
+            Get directions
+          </a>
+          <p class="contact__hours">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"></use></svg>
+            Open daily, 9:00 A.M. – 9:00 P.M.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================================================
+     11. Footer
+     ==================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <!-- LOGO SLOT (footer): dark variant of the same lockup. -->
+        <a class="logo-slot" href="#top" aria-label="ETEK Engineering Solutions, home">
+          <img src="assets/images/etek-logo-dark.png" alt="ETEK Engineering Solutions" width="389" height="240" style="height: 2.75rem;">
+        </a>
+        <p style="margin-block-start: var(--space-5); max-width: 30ch;">
+          Software engineering and technology solutions for local and international
+          businesses.
+        </p>
+        <p class="cluster" style="margin-block-start: var(--space-6);">
+          <span class="badge badge--inverse">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+            Kadawatha, Sri Lanka
+          </span>
+        </p>
+      </div>
+
+      <nav aria-labelledby="footer-nav-title">
+        <h3 class="footer-heading" id="footer-nav-title">Navigation</h3>
+        <ul class="footer-list">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="footer-heading">Services</h3>
+        <ul class="footer-list">
+          <li><a href="#services">Enterprise ERP Solutions</a></li>
+          <li><a href="#services">Global Offshore Development</a></li>
+          <li><a href="#services">Website &amp; System Builder</a></li>
+          <li><a href="#what-we-do">AI Solutions</a></li>
+          <li><a href="#what-we-do">Web &amp; Mobile Development</a></li>
+          <li><a href="#what-we-do">System Integration</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">Products</h3>
+        <ul class="footer-list">
+          <li><a href="#products">Noah Depo</a></li>
+          <li><a href="#products">Noah Port</a></li>
+          <li><a href="#products">Noah Hub</a></li>
+          <li><a href="#products">Nippon</a></li>
+        </ul>
+
+        <h3 class="footer-heading" style="margin-block-start: var(--space-8);">Contact</h3>
+        <ul class="footer-list">
+          <li><a href="tel:+94773647155">+94 773 647 155</a></li>
+          <li><a href="mailto:info@etek.lk">info@etek.lk</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> ETEK Engineering Solutions. All rights reserved.</p>
+      <p>Kadawatha, Sri Lanka &middot; Open daily 9:00 A.M. – 9:00 P.M.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ETEK Engineering Solutions",
+  "description": "Software engineering and technology solutions company building software, AI, ERP, web, mobile and custom digital solutions for businesses.",
+  "url": "https://etek.lk/",
+  "email": "info@etek.lk",
+  "telephone": ["+94773647155", "+94704456010", "+94702608202"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "78/2/G Pahala, Imbulgoda",
+    "addressLocality": "Kadawatha",
+    "addressCountry": "LK"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "09:00",
+    "closes": "21:00"
+  },
+  "areaServed": "Sri Lanka and international",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Solutions" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Solutions" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise ERP Solutions" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Application Development" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom System Development" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Process Automation" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Solutions" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX Design" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Consulting" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "System Integration" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Global Offshore Software Development" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Website and System Builder" } }
+  ]
+}
+</script>
+
+<!-- Classic scripts, not modules: module scripts are blocked when the page is
+     opened straight from disk, which would leave the vessel as a still image. -->
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/vendor/three.global.min.js" defer></script>
+<script src="assets/js/vessel.js" defer></script>
+</body>
+</html>

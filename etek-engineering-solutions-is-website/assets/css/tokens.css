@@ -1,0 +1,280 @@
+/* =========================================================================
+   ETEK Engineering Solutions - Design tokens
+   -------------------------------------------------------------------------
+   The single source of truth for colour, type, space, radii, shadow, motion
+   and layout. Nothing else in the codebase should hard-code these values.
+
+   Naming convention
+     --brand-<ramp>-<step>   raw brand palette, never used directly in UI
+     --color-<role>          semantic colour, safe to use anywhere
+     --text-<step>           type size            --font-<role>  family
+     --space-<step>          spacing              --radius-<step>
+     --shadow-<step>         elevation            --dur- / --ease-  motion
+     --layout-<role>         page structure
+   ========================================================================= */
+
+:root {
+  /* ---------------------------------------------------------------------
+     1. Raw brand palette (from the ETEK brand sheet)
+     --------------------------------------------------------------------- */
+  --brand-baltic-100: #01151d;
+  --brand-baltic-200: #022a39;
+  --brand-baltic-300: #033e56;
+  --brand-baltic-400: #045372;
+  --brand-baltic-500: #05668d;
+  --brand-baltic-600: #089bd5;
+  --brand-baltic-700: #2dbef7;
+  --brand-baltic-800: #73d4fa;
+  --brand-baltic-900: #b9e9fc;
+
+  --brand-cerulean-100: #0d1921;
+  --brand-cerulean-200: #1b3141;
+  --brand-cerulean-300: #284a62;
+  --brand-cerulean-400: #356282;
+  --brand-cerulean-500: #427aa1;
+  --brand-cerulean-600: #6097be;
+  --brand-cerulean-700: #88b1ce;
+  --brand-cerulean-800: #afcbde;
+  --brand-cerulean-900: #d7e5ef;
+
+  --brand-alice-100: #132f4e;
+  --brand-alice-200: #275d9b;
+  --brand-alice-300: #508dd3;
+  --brand-alice-400: #9dbfe7;
+  --brand-alice-500: #ebf2fa;
+  --brand-alice-600: #eff4fb;
+  --brand-alice-700: #f3f7fc;
+  --brand-alice-800: #f7fafd;
+  --brand-alice-900: #fbfcfe;
+
+  --brand-sage-100: #151e0b;
+  --brand-sage-200: #293c16;
+  --brand-sage-300: #3e5a20;
+  --brand-sage-400: #53782b;
+  --brand-sage-500: #679436;
+  --brand-sage-600: #87be4b;
+  --brand-sage-700: #a5ce78;
+  --brand-sage-800: #c3dfa5;
+  --brand-sage-900: #e1efd2;
+
+  --brand-lime-100: #212600;
+  --brand-lime-200: #414b00;
+  --brand-lime-300: #627100;
+  --brand-lime-400: #839700;
+  --brand-lime-500: #a5be00;
+  --brand-lime-600: #dbfd00;
+  --brand-lime-700: #e5ff3e;
+  --brand-lime-800: #eeff7e;
+  --brand-lime-900: #f6ffbf;
+
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+
+  /* ---------------------------------------------------------------------
+     2. Semantic colour - light theme
+     --------------------------------------------------------------------- */
+  --color-canvas: var(--brand-white);          /* page background        */
+  --color-surface: var(--brand-white);         /* cards, panels          */
+  --color-surface-raised: var(--brand-white);  /* floating elements      */
+  --color-surface-sunken: var(--brand-alice-500);
+  --color-surface-inverse: var(--brand-baltic-100);
+
+  --color-text: #0b1a22;                       /* body copy, 15.7:1      */
+  --color-text-strong: var(--brand-baltic-100);
+  --color-text-muted: #48606d;                 /* 6.4:1 on white         */
+  --color-text-subtle: #63798a;                /* 4.6:1, large text only */
+  --color-text-on-accent: var(--brand-white);
+  --color-text-inverse: var(--brand-alice-500);
+  --color-text-inverse-muted: #a8c3d3;         /* 8.2:1 on baltic-100    */
+
+  --color-accent: var(--brand-baltic-500);
+  --color-accent-hover: var(--brand-baltic-400);
+  --color-accent-active: var(--brand-baltic-300);
+  --color-accent-soft: var(--brand-alice-500);
+  --color-accent-soft-border: #cfe0ee;
+  --color-accent-contrast-text: var(--brand-baltic-400);   /* 6.6:1      */
+
+  --color-secondary: var(--brand-cerulean-500);
+  --color-highlight: var(--brand-lime-500);     /* decorative only       */
+  --color-highlight-ink: var(--brand-lime-200); /* readable lime text    */
+  --color-positive: var(--brand-sage-500);
+  --color-positive-ink: var(--brand-sage-300);
+
+  --color-border: #dde7f0;
+  --color-border-strong: #c3d5e4;
+  --color-border-inverse: rgba(185, 233, 252, 0.16);
+  --color-focus: var(--brand-baltic-600);
+
+  /* Layered gradients and glows */
+  --gradient-accent: linear-gradient(135deg, var(--brand-baltic-500) 0%, var(--brand-cerulean-500) 100%);
+  --gradient-accent-vivid: linear-gradient(120deg, var(--brand-baltic-400) 0%, var(--brand-baltic-600) 60%, var(--brand-lime-500) 140%);
+  --gradient-ink: linear-gradient(160deg, var(--brand-baltic-200) 0%, var(--brand-baltic-100) 70%);
+  --gradient-mesh-1: radial-gradient(60% 60% at 18% 12%, rgba(8, 155, 213, 0.20) 0%, transparent 70%);
+  --gradient-mesh-2: radial-gradient(50% 50% at 82% 4%, rgba(66, 122, 161, 0.18) 0%, transparent 72%);
+  --gradient-mesh-3: radial-gradient(45% 45% at 62% 78%, rgba(165, 190, 0, 0.14) 0%, transparent 70%);
+  --gradient-fade-canvas: linear-gradient(180deg, transparent 0%, var(--color-canvas) 100%);
+  --glow-accent: 0 40px 120px -30px rgba(5, 102, 141, 0.45);
+  --scrim-media: linear-gradient(180deg, rgba(1, 21, 29, 0.30) 0%, rgba(1, 21, 29, 0.82) 100%);
+
+  /* ---------------------------------------------------------------------
+     3. Typography
+     --------------------------------------------------------------------- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'Cascadia Mono', Consolas, monospace;
+
+  --text-2xs: 0.6875rem;   /* 11px */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.8125rem;    /* 13px */
+  --text-base: 0.9375rem;  /* 15px */
+  --text-md: 1rem;         /* 16px */
+  --text-lg: 1.0625rem;    /* 17px */
+  --text-xl: clamp(1.125rem, 0.35vw + 1.05rem, 1.25rem);
+  --text-2xl: clamp(1.3125rem, 0.6vw + 1.16rem, 1.5rem);
+  --text-3xl: clamp(1.5rem, 1vw + 1.25rem, 1.875rem);
+  --text-4xl: clamp(1.75rem, 1.7vw + 1.35rem, 2.375rem);
+  --text-5xl: clamp(2.125rem, 2.6vw + 1.5rem, 3.125rem);
+  --text-6xl: clamp(2.5rem, 4.2vw + 1.4rem, 3.75rem);
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --leading-none: 1;
+  --leading-tight: 1.12;
+  --leading-snug: 1.28;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.68;
+
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.16em;
+
+  /* ---------------------------------------------------------------------
+     4. Space - 4px base
+     --------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --space-section: clamp(3.5rem, 6.5vw, 7rem);
+  --space-section-lg: clamp(4.5rem, 9vw, 9.5rem);
+  --space-gutter: clamp(1.125rem, 3.5vw, 2.5rem);
+
+  /* ---------------------------------------------------------------------
+     5. Radii, borders, shadows
+     --------------------------------------------------------------------- */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  --border-width: 1px;
+  --border-hairline: var(--border-width) solid var(--color-border);
+  --border-hairline-strong: var(--border-width) solid var(--color-border-strong);
+  --border-hairline-inverse: var(--border-width) solid var(--color-border-inverse);
+
+  --shadow-xs: 0 1px 2px rgba(11, 26, 34, 0.05);
+  --shadow-sm: 0 1px 2px rgba(11, 26, 34, 0.05), 0 2px 6px -2px rgba(11, 26, 34, 0.07);
+  --shadow-md: 0 2px 4px rgba(11, 26, 34, 0.04), 0 8px 20px -6px rgba(11, 26, 34, 0.10);
+  --shadow-lg: 0 4px 8px rgba(11, 26, 34, 0.04), 0 18px 40px -12px rgba(11, 26, 34, 0.16);
+  --shadow-xl: 0 8px 16px rgba(11, 26, 34, 0.05), 0 34px 70px -20px rgba(11, 26, 34, 0.22);
+  --shadow-focus: 0 0 0 3px rgba(8, 155, 213, 0.35);
+  --shadow-inset-hairline: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  /* ---------------------------------------------------------------------
+     6. Motion
+     --------------------------------------------------------------------- */
+  --dur-instant: 90ms;
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 420ms;
+  --dur-slower: 780ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---------------------------------------------------------------------
+     7. Layout
+     --------------------------------------------------------------------- */
+  --layout-max: 1200px;
+  --layout-max-wide: 1400px;
+  --layout-max-prose: 62ch;
+  --layout-header-h: 4.25rem;
+  --layout-ring: 1px;
+
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* =========================================================================
+   Dark theme - semantic tokens only, the raw palette never changes
+   ========================================================================= */
+:root[data-theme='dark'] {
+  --color-canvas: var(--brand-baltic-100);
+  --color-surface: #04202c;
+  --color-surface-raised: #052b3a;
+  --color-surface-sunken: #010f16;
+  --color-surface-inverse: var(--brand-alice-500);
+
+  --color-text: #e6f1f8;
+  --color-text-strong: var(--brand-white);
+  --color-text-muted: #a8c3d3;
+  --color-text-subtle: #7f9db0;
+  --color-text-on-accent: var(--brand-baltic-100);
+  --color-text-inverse: var(--brand-baltic-100);
+  --color-text-inverse-muted: #48606d;
+
+  --color-accent: var(--brand-baltic-700);
+  --color-accent-hover: var(--brand-baltic-800);
+  --color-accent-active: var(--brand-baltic-600);
+  --color-accent-soft: rgba(45, 190, 247, 0.12);
+  --color-accent-soft-border: rgba(45, 190, 247, 0.28);
+  --color-accent-contrast-text: var(--brand-baltic-700);
+
+  --color-highlight: var(--brand-lime-600);
+  --color-highlight-ink: var(--brand-lime-800);
+  --color-positive: var(--brand-sage-600);
+  --color-positive-ink: var(--brand-sage-800);
+
+  --color-border: rgba(185, 233, 252, 0.14);
+  --color-border-strong: rgba(185, 233, 252, 0.26);
+  --color-border-inverse: rgba(11, 26, 34, 0.12);
+
+  --gradient-mesh-1: radial-gradient(60% 60% at 18% 12%, rgba(8, 155, 213, 0.26) 0%, transparent 70%);
+  --gradient-mesh-2: radial-gradient(50% 50% at 82% 4%, rgba(66, 122, 161, 0.24) 0%, transparent 72%);
+  --gradient-mesh-3: radial-gradient(45% 45% at 62% 78%, rgba(165, 190, 0, 0.12) 0%, transparent 70%);
+  --gradient-ink: linear-gradient(160deg, #052b3a 0%, var(--brand-baltic-100) 70%);
+  --glow-accent: 0 40px 130px -30px rgba(45, 190, 247, 0.32);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 6px -2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px -6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.35), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.4), 0 34px 70px -20px rgba(0, 0, 0, 0.7);
+  --shadow-inset-hairline: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
