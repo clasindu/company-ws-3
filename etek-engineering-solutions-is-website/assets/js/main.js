@@ -181,28 +181,15 @@
   }
 
   /* ---------------------------------------------------------------------
-     Products video - play/pause control, paused while off screen
+     Products video - always plays while on screen; no visible controls
      --------------------------------------------------------------------- */
   function initVesselVideo() {
     var stage = document.getElementById('vessel');
     var video = document.getElementById('vessel-video');
-    var button = document.getElementById('vessel-playback');
-    if (!stage || !video || !button) return;
+    if (!stage || !video) return;
 
-    // Looping footage is a motion effect, so the OS setting decides whether it
-    // runs on load. The button can still start it either way.
     var wantsPlayback = !prefersReducedMotion;
     var isOnScreen = true;
-
-    function syncButton() {
-      var paused = video.paused;
-      stage.classList.toggle('is-paused', paused);
-      button.title = paused ? 'Play the video' : 'Pause the video';
-      button.setAttribute(
-        'aria-label',
-        paused ? 'Play the port operations video' : 'Pause the port operations video'
-      );
-    }
 
     function apply() {
       if (!wantsPlayback || !isOnScreen) {
@@ -210,17 +197,8 @@
         return;
       }
       var started = video.play();
-      // Some browsers refuse to autoplay: keep the button honest when they do.
-      if (started && typeof started.catch === 'function') started.catch(syncButton);
+      if (started && typeof started.catch === 'function') started.catch(function () {});
     }
-
-    button.addEventListener('click', function () {
-      wantsPlayback = video.paused;
-      apply();
-    });
-
-    video.addEventListener('play', syncButton);
-    video.addEventListener('pause', syncButton);
 
     if (prefersReducedMotion) {
       video.removeAttribute('autoplay');
@@ -235,7 +213,7 @@
       }, { threshold: 0.15 }).observe(stage);
     }
 
-    syncButton();
+    apply();
   }
 
   /* ---------------------------------------------------------------------

@@ -432,50 +432,8 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background-color: #010f16;
-}
-
-/* One icon per playback state, so the button needs no JS-side icon swapping. */
-.vessel__icon--play {
-  display: none;
-}
-
-.vessel.is-paused .vessel__icon--pause {
-  display: none;
-}
-
-.vessel.is-paused .vessel__icon--play {
-  display: block;
-}
-
-.vessel__controls {
-  position: absolute;
-  z-index: var(--z-raised);
-  top: var(--space-4);
-  right: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.vessel__control {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: var(--border-hairline-inverse);
-  border-radius: var(--radius-sm);
-  background-color: rgba(1, 21, 29, 0.62);
-  color: var(--brand-alice-500);
-  backdrop-filter: blur(8px);
-  transition: background-color var(--dur-fast) var(--ease-out),
-              border-color var(--dur-fast) var(--ease-out),
-              color var(--dur-fast) var(--ease-out);
-}
-
-.vessel__control:hover {
-  border-color: var(--brand-baltic-700);
-  background-color: rgba(5, 102, 141, 0.75);
-  color: #fff;
+  /* Fresher look on top of the graded encode — realistic port colours, not neon. */
+  filter: saturate(1.12) contrast(1.06) brightness(1.03);
 }
 
 .products__stage-copy {

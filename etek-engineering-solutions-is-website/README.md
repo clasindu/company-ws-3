@@ -43,34 +43,83 @@ assets/
     favicon.png             derived from the green E of the logo
     LICENSE-lucide.txt
   images/                   photography, posters, logo files, CREDITS.md
-  video/                    port operations footage
+  video/                    container terminal footage
 tools/
   inline-sprite.py          copies sprite.svg into the HTML pages
 ```
 
 ## The products video
 
-The products section plays
-`assets/video/port-operations-berth-to-yard.mp4`: two supplied clips merged into
-one 15s sequence, the vessel at berth under the quay cranes first, then the move
-from berth into the container yard, joined by a short crossfade.
+The products section plays `assets/video/port-terminal-operation.mp4`: three
+supplied clips cut into one 25s sequence that follows a single container through a
+full terminal operation - the vessel arrives under tug escort and berths, a quay
+crane discharges a container onto a prime mover, and the prime mover carries it to
+the yard where a yard crane lifts it off.
 
-It is a silent, looping 1280x720 H.264 file at 3.7 MB, with no audio track at
-all, so nothing is muted-but-downloaded. `assets/images/port-operations-poster-*`
-is the first frame, used as the `poster` so the frame is never empty while the
-video loads.
+It is a silent, looping 1280x720 H.264 file at about 7.6 MB, with no audio track at
+all, so nothing is muted-but-downloaded. Colour and contrast are lifted in the encode
+and again lightly in CSS so the footage does not look flat or washed out. The graded
+master with its audio mix lives outside the site at
+`../assets/video/port-terminal-operation-master.mp4`, for presentation use.
+`assets/images/port-terminal-operation-poster-*` is the first frame, used as the
+`poster` so the frame is never empty while the video loads.
 
-`initVesselVideo` in `main.js` adds the parts autoplay alone cannot do:
+`initVesselVideo` in `main.js` keeps playback automatic with no on-screen controls:
 
-- A pause/play button, because content that plays for more than five seconds
-  needs a way to stop it (WCAG 2.2.2).
+- The video autoplays muted and loops while the products section is visible.
 - Playback stops while the section is off screen, so scrolling past it does not
   keep a decoder running.
-- Under `prefers-reduced-motion` the video stays on its poster frame until the
-  visitor presses play.
+- Under `prefers-reduced-motion` the video stays on its poster frame.
 
 To replace the footage, keep the file name and drop in a new MP4; regenerate the
 poster from its first frame at 1600px and 800px wide.
+
+The three source clips carry a generator watermark in the bottom right corner. It
+is removed by cropping to the widest exactly-16:9 rectangle that excludes it and
+rescaling back to 1280x720, an 11% zoom. Inpainting the mark was tried first and
+rejected: it left a visible soft patch wherever a structure passed behind it,
+whereas cropping invents no pixels and leaves no artifact.
+
+### How the sequence was built
+
+Sources are `Vessel Arrival.mp4`, `Container Discharge.mp4` and
+`Prime Mover to Yard.mp4`, all 10s of 1280x720 at 24fps. Cuts, in order, joined by
+0.40s and 0.45s dissolves:
+
+| # | clip | in | out |
+| - | ---- | -- | --- |
+| 1 | Vessel Arrival | 0.00 | 10.00 |
+| 2 | Container Discharge | 0.00 | 10.00 |
+| 3 | Prime Mover to Yard | 4.05 | 10.00 |
+
+Clip 3 starts at 4.05s because its first 1.58s repeat the closing shot of clip 2
+almost exactly, and the driving shot after that shows the chassis empty, which
+contradicts the container just loaded onto it. From 4.05s the truck is far enough
+away that this no longer reads.
+
+Each clip was then corrected to match the others, with the corrections solved from
+measurements rather than set by eye. White balance was matched onto clips 1 and 2,
+which already agreed; exposure onto the three-clip mean; and only half of each
+clip's saturation gap was closed, because the rest of that gap is genuine content
+difference rather than a grading difference. The shared `contrast`/`gamma` is a
+slight documentary polish, trimmed per clip so correcting exposure through the curve
+does not pull them apart again.
+
+```
+[all]  crop=1136:639:0:40,scale=1280:720:flags=lanczos
+[1]    eq=saturation=1.1813,eq=contrast=1.0690:gamma=0.995,
+       colorchannelmixer=rr=0.97871:gg=0.95512:bb=0.99293   audio -2.10 dB
+[2]    eq=saturation=0.9865,eq=contrast=1.0492:gamma=0.995,
+       colorchannelmixer=rr=1.01255:gg=0.99025:bb=1.01503   audio +4.10 dB
+[3]    eq=saturation=0.9037,eq=contrast=0.9584:gamma=0.995,
+       colorchannelmixer=rr=1.07348:gg=1.05989:bb=1.09883   audio +4.10 dB
+```
+
+Those audio gains bring all three to -20.5 LUFS. Clip 1 was 6.2 LU louder than the
+other two, which was the most audible mismatch of the three joins. Measured on the
+finished master, exposure now varies by 1.7 levels between the three segments and
+white balance by under 0.8%, both far below the shot-to-shot variation that already
+exists inside each source clip, so the joins do not announce themselves.
 
 ## Design system
 
