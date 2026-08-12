@@ -69,7 +69,7 @@
   color: var(--color-positive-ink);
 }
 
-/* Visual side: browser frame, glow and overlapping chips */
+/* Visual side: intro video frame */
 .hero__visual {
   position: relative;
 }
@@ -88,35 +88,20 @@
 .hero__frame {
   position: relative;
   z-index: var(--z-raised);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background-color: #010f16;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
 }
 
-.hero__chip--tracking {
-  top: 12%;
-  left: -1.5rem;
-  animation: float-y 7s var(--ease-in-out) infinite;
-}
-
-.hero__chip--reporting {
-  right: -1.25rem;
-  bottom: 14%;
-  animation: float-y 8.5s var(--ease-in-out) 0.6s infinite reverse;
-}
-
-@keyframes float-y {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-9px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__chip--tracking,
-  .hero__chip--reporting {
-    animation: none;
-  }
+.hero__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #010f16;
 }
 
 @media (max-width: 64rem) {
@@ -133,22 +118,6 @@
     margin-inline: auto;
     max-width: 40rem;
     width: 100%;
-  }
-}
-
-@media (max-width: 40rem) {
-  .hero__chip--tracking {
-    left: -0.5rem;
-    top: 8%;
-  }
-
-  .hero__chip--reporting {
-    right: -0.5rem;
-  }
-
-  .float-chip {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--text-xs);
   }
 }
 

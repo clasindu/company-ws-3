@@ -195,27 +195,14 @@
       </div>
 
       <div class="hero__visual">
-        <div class="hero__frame browser">
-          <div class="browser__bar" aria-hidden="true">
-            <div class="browser__dots"><span></span><span></span><span></span></div>
-            <p class="browser__address">etek.lk</p>
-          </div>
-          <div class="browser__viewport">
-            <picture>
-              <source type="image/webp" srcset="assets/images/dashboard-erp-overview-800.webp 800w, assets/images/dashboard-erp-overview-1600.webp 1600w" sizes="(max-width: 64rem) 92vw, 46vw">
-              <img src="assets/images/dashboard-erp-overview-1600.jpg" srcset="assets/images/dashboard-erp-overview-800.jpg 800w, assets/images/dashboard-erp-overview-1600.jpg 1600w" sizes="(max-width: 64rem) 92vw, 46vw" width="1600" height="1081" alt="Illustrative business dashboard showing operational charts and reporting data." fetchpriority="high" decoding="async">
-            </picture>
-          </div>
+        <div class="hero__frame">
+          <video class="hero__video" id="hero-video" width="1280" height="720"
+                 poster="assets/images/intro-poster-1600.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="ETEK Engineering Solutions intro: software, AI, ERP, web and mobile solutions.">
+            <source src="assets/video/intro.mp4" type="video/mp4">
+          </video>
         </div>
-
-        <p class="float-chip hero__chip--tracking">
-          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-radar"></use></svg>
-          Real-time tracking
-        </p>
-        <p class="float-chip hero__chip--reporting">
-          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-clipboard-list"></use></svg>
-          Operational reporting
-        </p>
       </div>
     </div>
   </section>

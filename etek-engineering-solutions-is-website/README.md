@@ -48,6 +48,13 @@ tools/
   inline-sprite.py          copies sprite.svg into the HTML pages
 ```
 
+## The hero intro video
+
+The hero plays `assets/video/intro.mp4`: a silent, looping
+1280x720 H.264 brand intro (~3.4 MB). The generator watermark is cropped out, and
+colour/contrast are lifted for a cleaner look. Poster frames are
+`assets/images/intro-poster-*`.
+
 ## The products video
 
 The products section plays `assets/video/port-terminal-operation.mp4`: three
@@ -64,9 +71,10 @@ master with its audio mix lives outside the site at
 `assets/images/port-terminal-operation-poster-*` is the first frame, used as the
 `poster` so the frame is never empty while the video loads.
 
-`initVesselVideo` in `main.js` keeps playback automatic with no on-screen controls:
+`bindAutoplayVideo` in `main.js` keeps both section videos automatic with no
+on-screen controls:
 
-- The video autoplays muted and loops while the products section is visible.
+- Each video autoplays muted and loops while its section is visible.
 - Playback stops while the section is off screen, so scrolling past it does not
   keep a decoder running.
 - Under `prefers-reduced-motion` the video stays on its poster frame.

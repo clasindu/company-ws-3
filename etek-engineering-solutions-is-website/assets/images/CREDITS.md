@@ -26,15 +26,21 @@ Pexels entries are identified by their photo id: the original sits at
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
 - `service-builder-*.jpg|webp` - UX Indonesia, Unsplash (`photo-1581291518857-4e27b48ff24e`)
 - `service-offshore-*.jpg|webp` - Annie Spratt, Unsplash (`photo-1522071820081-009f0129c71c`)
+- `intro-poster-*.jpg|webp` - supplied by ETEK. First frame of the hero intro
+  video, not a placeholder.
 - `port-terminal-operation-poster-*.jpg|webp` - supplied by ETEK. First frame of
   the products video, not a placeholder.
 - `terminal-aerial-*.jpg|webp` - Chuttersnap, Unsplash (`photo-1494412574643-ff11b0a5c1c3`)
 
 ## Video
 
+- `../video/intro.mp4` - supplied by ETEK. Brand intro (software, AI, ERP, web,
+  mobile), generator watermark removed by cropping, colour polished, and
+  re-encoded silent for the web. Not a placeholder.
 - `../video/port-terminal-operation.mp4` - supplied by ETEK. Three clips (vessel
   arrival, container discharge, prime mover to yard) cut into one 25s sequence,
   colour matched to each other, generator watermark removed by cropping, and
   re-encoded silent for the web. Not a placeholder.
-- The graded master with audio is outside the site tree at
+- Graded masters with audio live outside the site tree at
+  `../../../assets/video/intro-master.mp4` and
   `../../../assets/video/port-terminal-operation-master.mp4`.

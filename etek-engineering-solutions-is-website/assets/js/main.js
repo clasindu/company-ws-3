@@ -181,11 +181,9 @@
   }
 
   /* ---------------------------------------------------------------------
-     Products video - always plays while on screen; no visible controls
+     Autoplaying section videos - muted loop, no controls, pause off-screen
      --------------------------------------------------------------------- */
-  function initVesselVideo() {
-    var stage = document.getElementById('vessel');
-    var video = document.getElementById('vessel-video');
+  function bindAutoplayVideo(stage, video) {
     if (!stage || !video) return;
 
     var wantsPlayback = !prefersReducedMotion;
@@ -205,7 +203,6 @@
       video.pause();
     }
 
-    // Playing off screen spends bandwidth and battery on nothing.
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         isOnScreen = entries[0].isIntersecting;
@@ -214,6 +211,14 @@
     }
 
     apply();
+  }
+
+  function initHeroVideo() {
+    bindAutoplayVideo(document.querySelector('.hero__visual'), document.getElementById('hero-video'));
+  }
+
+  function initVesselVideo() {
+    bindAutoplayVideo(document.getElementById('vessel'), document.getElementById('vessel-video'));
   }
 
   /* ---------------------------------------------------------------------
@@ -297,6 +302,7 @@
     initHeader();
     initTabs();
     initCarousel();
+    initHeroVideo();
     initVesselVideo();
     initReveal();
     initNavHighlight();
