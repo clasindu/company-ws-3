@@ -26,5 +26,12 @@ Pexels entries are identified by their photo id: the original sits at
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
 - `service-builder-*.jpg|webp` - UX Indonesia, Unsplash (`photo-1581291518857-4e27b48ff24e`)
 - `service-offshore-*.jpg|webp` - Annie Spratt, Unsplash (`photo-1522071820081-009f0129c71c`)
+- `port-operations-poster-*.jpg|webp` - supplied by ETEK. First frame of the
+  products video, not a placeholder.
 - `terminal-aerial-*.jpg|webp` - Chuttersnap, Unsplash (`photo-1494412574643-ff11b0a5c1c3`)
-- `vessel-container-ship-*.jpg|webp` - Venti Views, Unsplash (`photo-1605745341112-85968b19335b`)
+
+## Video
+
+- `../video/port-operations-berth-to-yard.mp4` - supplied by ETEK. Two clips
+  merged into one sequence (vessel at berth and crane operation, then berth to
+  yard), re-encoded for the web. Not a placeholder.

@@ -1,7 +1,7 @@
 # ETEK Engineering Solutions — website
 
 Static website (HTML, CSS, vanilla JS). No build step, no framework, no CDN
-requests at runtime: fonts, icons, images and three.js are all served from
+requests at runtime: fonts, icons, images and video are all served from
 `assets/`.
 
 Current state: **home page only**, pending approval. The remaining pages
@@ -18,10 +18,10 @@ python -m http.server 8123
 # then open http://localhost:8123
 ```
 
-Opening `index.html` straight from disk also works, including the 3D vessel,
-but browsers refuse to load web font files over `file://`, so headings and body
-text fall back to the system UI font instead of Inter. Use `preview.cmd` to see
-the page as it will actually look online.
+Opening `index.html` straight from disk also works, but browsers refuse to load
+web font files over `file://`, so headings and body text fall back to the system
+UI font instead of Inter. Use `preview.cmd` to see the page as it will actually
+look online.
 
 ## Structure
 
@@ -36,39 +36,41 @@ assets/
     components.css          reusable components (buttons, cards, nav, tabs...)
     sections.css            one block per home page section
   js/
-    main.js                 nav, theme, tabs, carousel, scroll reveal
-    vessel.js               three.js container vessel
-    vendor/
-      three.global.min.js   three.js r169 (generated, see tools/three-global.py)
+    main.js                 nav, theme, tabs, carousel, video, scroll reveal
   fonts/                    Inter woff2, latin and latin-ext subsets
   icons/
     sprite.svg              Lucide icon sprite (source of truth)
     favicon.png             derived from the green E of the logo
     LICENSE-lucide.txt
-  images/                   photography, logo files, CREDITS.md
+  images/                   photography, posters, logo files, CREDITS.md
+  video/                    port operations footage
 tools/
   inline-sprite.py          copies sprite.svg into the HTML pages
-  three-global.py           rebuilds the three.js vendor file
 ```
 
-## The 3D vessel
+## The products video
 
-`assets/js/vessel.js` builds the container vessel from three.js primitives, so
-nothing is downloaded beyond the vendor file and the model is coloured straight
-from the brand tokens. Visitors can drag to rotate, pinch to zoom, and use the
-zoom in, zoom out and reset buttons in the corner of the frame. The mouse wheel
-zooms too, but only after the model has been clicked, so scrolling past the
-section is never trapped. Left alone, the model drifts back into a slow
-rotation.
+The products section plays
+`assets/video/port-operations-berth-to-yard.mp4`: two supplied clips merged into
+one 15s sequence, the vessel at berth under the quay cranes first, then the move
+from berth into the container yard, joined by a short crossfade.
 
-Both scripts load as classic scripts rather than modules, because browsers block
-module scripts over `file://` and the vessel would silently degrade to its
-fallback photograph. `tools/three-global.py` produces the vendor file by
-rewriting the official three.js module export into a `window.THREE` global:
+It is a silent, looping 1280x720 H.264 file at 3.7 MB, with no audio track at
+all, so nothing is muted-but-downloaded. `assets/images/port-operations-poster-*`
+is the first frame, used as the `poster` so the frame is never empty while the
+video loads.
 
-```bash
-python tools/three-global.py
-```
+`initVesselVideo` in `main.js` adds the parts autoplay alone cannot do:
+
+- A pause/play button, because content that plays for more than five seconds
+  needs a way to stop it (WCAG 2.2.2).
+- Playback stops while the section is off screen, so scrolling past it does not
+  keep a decoder running.
+- Under `prefers-reduced-motion` the video stays on its poster frame until the
+  visitor presses play.
+
+To replace the footage, keep the file name and drop in a new MP4; regenerate the
+poster from its first frame at 1600px and 800px wide.
 
 ## Design system
 
@@ -133,5 +135,6 @@ markup will pick them up unchanged.
 - Tabs follow the ARIA tabs pattern with arrow key support; the accordion uses
   native `<details>`.
 - `prefers-reduced-motion` disables scroll reveal, the marquee, floating
-  animations and the vessel's idle rotation.
-- The 3D scene is decorative: the same information is in the product cards.
+  animations, and holds the products video on its poster frame.
+- The products video is decorative and silent: the same information is in the
+  surrounding copy and the product cards.

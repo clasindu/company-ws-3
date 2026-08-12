@@ -102,13 +102,9 @@
   <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
   <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1" /> <rect x="6" y="4" width="4" height="16" rx="1" /></symbol>
-  <symbol id="i-rotate-3d" viewBox="0 0 24 24"><path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" /> <path d="m15.194 13.707 3.814 1.86-1.86 3.814" /> <path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" /></symbol>
   <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
   <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol>
   <symbol id="i-circle-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="1" /></symbol>
-  <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /> <path d="M11 8v6" /> <path d="M8 11h6" /></symbol>
-  <symbol id="i-zoom-out" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /> <path d="M8 11h6" /></symbol>
-  <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol>
 </svg>
 <!-- ICON-SPRITE:END -->
 
@@ -507,7 +503,7 @@
   </section>
 
   <!-- ==================================================================
-       4. Products - full-bleed ink section with the 3D container vessel
+       4. Products - full-bleed ink section with the port operations video
        ================================================================== -->
   <section class="section section--lg section--ink products" id="products" aria-labelledby="products-title">
     <div class="mesh products__mesh" aria-hidden="true"></div>
@@ -519,28 +515,18 @@
 
       <div class="products__stage">
         <div class="vessel" id="vessel">
-          <canvas class="vessel__canvas" id="vessel-canvas" role="img" aria-label="Interactive 3D model of a container vessel loaded with stacked shipping containers at sea, which visitors can drag to rotate."></canvas>
-          <div class="vessel__fallback" aria-hidden="true">
-            <picture>
-              <source type="image/webp" srcset="assets/images/vessel-container-ship-800.webp 800w, assets/images/vessel-container-ship-1600.webp 1600w" sizes="(max-width: 64rem) 92vw, 42vw">
-              <img src="assets/images/vessel-container-ship-800.jpg" srcset="assets/images/vessel-container-ship-800.jpg 800w, assets/images/vessel-container-ship-1600.jpg 1600w" sizes="(max-width: 64rem) 92vw, 42vw" width="1600" height="1066" alt="" loading="lazy" decoding="async">
-            </picture>
-          </div>
+          <video class="vessel__video" id="vessel-video" width="1280" height="720"
+                 poster="assets/images/port-operations-poster-1600.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Port operations footage: a container vessel at berth worked by quay cranes, followed by containers moving from the berth into the container yard.">
+            <source src="assets/video/port-operations-berth-to-yard.mp4" type="video/mp4">
+          </video>
           <div class="vessel__controls">
-            <button class="vessel__control" type="button" data-vessel-action="zoom-in" title="Zoom in" aria-label="Zoom in on the container vessel">
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-zoom-in"></use></svg>
-            </button>
-            <button class="vessel__control" type="button" data-vessel-action="zoom-out" title="Zoom out" aria-label="Zoom out from the container vessel">
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-zoom-out"></use></svg>
-            </button>
-            <button class="vessel__control" type="button" data-vessel-action="reset" title="Reset the view" aria-label="Reset the container vessel view">
-              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-rotate-ccw"></use></svg>
+            <button class="vessel__control" type="button" id="vessel-playback" title="Pause the video" aria-label="Pause the port operations video">
+              <svg class="icon icon--sm vessel__icon--pause" aria-hidden="true"><use href="#i-pause"></use></svg>
+              <svg class="icon icon--sm vessel__icon--play" aria-hidden="true"><use href="#i-play"></use></svg>
             </button>
           </div>
-          <p class="vessel__hint">
-            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-rotate-3d"></use></svg>
-            Drag to rotate
-          </p>
         </div>
 
         <div class="products__stage-copy">
@@ -1244,10 +1230,8 @@
 }
 </script>
 
-<!-- Classic scripts, not modules: module scripts are blocked when the page is
-     opened straight from disk, which would leave the vessel as a still image. -->
+<!-- Classic script, not a module: module scripts are blocked when the page is
+     opened straight from disk. -->
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/vendor/three.global.min.js" defer></script>
-<script src="assets/js/vessel.js" defer></script>
 </body>
 </html>

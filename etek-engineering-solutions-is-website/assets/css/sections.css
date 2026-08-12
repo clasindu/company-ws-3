@@ -314,12 +314,19 @@
 
 .service-panel {
   display: grid;
+  /* An auto track would size to the media's aspect-ratio-derived max-content
+     width and push the copy past the card edge. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   border: var(--border-hairline);
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
+}
+
+.service-panel > * {
+  min-width: 0;
 }
 
 .service-panel__media {
@@ -387,7 +394,7 @@
 }
 
 /* -------------------------------------------------------------------------
-   5. Products - full-bleed ink section with 3D vessel
+   5. Products - full-bleed ink section with the port operations video
    ------------------------------------------------------------------------- */
 .products {
   position: relative;
@@ -418,74 +425,26 @@
   overflow: hidden;
 }
 
-.vessel__canvas {
+.vessel__video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 11;
-  touch-action: pan-y;
-  cursor: grab;
-}
-
-.vessel__canvas:active {
-  cursor: grabbing;
-}
-
-/* Shown until the scene is ready, and kept as the no-WebGL fallback. Never
-   intercepts pointers, so dragging works from the first frame. */
-.vessel__fallback {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.vessel__fallback img {
-  width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  opacity: 0.55;
+  background-color: #010f16;
 }
 
-.vessel__fallback::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(1, 21, 29, 0.45) 0%, rgba(1, 21, 29, 0.9) 100%);
+/* One icon per playback state, so the button needs no JS-side icon swapping. */
+.vessel__icon--play {
+  display: none;
 }
 
-.vessel.is-ready .vessel__fallback {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--dur-slower) var(--ease-out),
-              visibility var(--dur-slower) linear;
+.vessel.is-paused .vessel__icon--pause {
+  display: none;
 }
 
-.vessel__hint {
-  position: absolute;
-  z-index: var(--z-raised);
-  bottom: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border: var(--border-hairline-inverse);
-  border-radius: var(--radius-pill);
-  background-color: rgba(1, 21, 29, 0.62);
-  color: var(--brand-alice-500);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-wide);
-  backdrop-filter: blur(8px);
-  white-space: nowrap;
-}
-
-@media (max-width: 40rem) {
-  .vessel__hint {
-    white-space: normal;
-    max-width: calc(100% - var(--space-8));
-    text-align: center;
-  }
+.vessel.is-paused .vessel__icon--play {
+  display: block;
 }
 
 .vessel__controls {
@@ -733,12 +692,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .process .step:nth-child(2n)::after {
-    display: none;
+  /* Two columns: the connector only bridges the left step across to the right one. */
+  .process .step:nth-child(2n + 1)::after {
+    display: block;
   }
 
-  .process .step:nth-child(3n)::after {
-    display: block;
+  .process .step:nth-child(2n)::after,
+  .process .step:last-child::after {
+    display: none;
   }
 }
 
@@ -747,7 +708,9 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .process .step::after {
+  /* Single column: no connectors. Matches the specificity of the two-column rule above. */
+  .process .step::after,
+  .process .step:nth-child(2n + 1)::after {
     display: none;
   }
 }

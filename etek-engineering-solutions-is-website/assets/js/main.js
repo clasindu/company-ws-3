@@ -181,6 +181,64 @@
   }
 
   /* ---------------------------------------------------------------------
+     Products video - play/pause control, paused while off screen
+     --------------------------------------------------------------------- */
+  function initVesselVideo() {
+    var stage = document.getElementById('vessel');
+    var video = document.getElementById('vessel-video');
+    var button = document.getElementById('vessel-playback');
+    if (!stage || !video || !button) return;
+
+    // Looping footage is a motion effect, so the OS setting decides whether it
+    // runs on load. The button can still start it either way.
+    var wantsPlayback = !prefersReducedMotion;
+    var isOnScreen = true;
+
+    function syncButton() {
+      var paused = video.paused;
+      stage.classList.toggle('is-paused', paused);
+      button.title = paused ? 'Play the video' : 'Pause the video';
+      button.setAttribute(
+        'aria-label',
+        paused ? 'Play the port operations video' : 'Pause the port operations video'
+      );
+    }
+
+    function apply() {
+      if (!wantsPlayback || !isOnScreen) {
+        video.pause();
+        return;
+      }
+      var started = video.play();
+      // Some browsers refuse to autoplay: keep the button honest when they do.
+      if (started && typeof started.catch === 'function') started.catch(syncButton);
+    }
+
+    button.addEventListener('click', function () {
+      wantsPlayback = video.paused;
+      apply();
+    });
+
+    video.addEventListener('play', syncButton);
+    video.addEventListener('pause', syncButton);
+
+    if (prefersReducedMotion) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
+
+    // Playing off screen spends bandwidth and battery on nothing.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        isOnScreen = entries[0].isIntersecting;
+        apply();
+      }, { threshold: 0.15 }).observe(stage);
+    }
+
+    syncButton();
+  }
+
+  /* ---------------------------------------------------------------------
      Scroll reveal - staggered inside a shared parent
      --------------------------------------------------------------------- */
   function initReveal() {
@@ -261,6 +319,7 @@
     initHeader();
     initTabs();
     initCarousel();
+    initVesselVideo();
     initReveal();
     initNavHighlight();
   }
