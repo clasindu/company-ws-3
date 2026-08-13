@@ -377,16 +377,15 @@
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  border-block-end: var(--border-width) solid transparent;
+  border-block-end: var(--border-width) solid var(--color-border);
+  background-color: color-mix(in srgb, var(--color-canvas) 92%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
   transition: background-color var(--dur-base) var(--ease-out),
               border-color var(--dur-base) var(--ease-out),
               box-shadow var(--dur-base) var(--ease-out);
 }
 
 .site-header.is-stuck {
-  border-block-end-color: var(--color-border);
-  background-color: color-mix(in srgb, var(--color-canvas) 88%, transparent);
-  backdrop-filter: blur(14px) saturate(140%);
   box-shadow: var(--shadow-sm);
 }
 

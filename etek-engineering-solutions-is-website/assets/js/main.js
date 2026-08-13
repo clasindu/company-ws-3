@@ -214,7 +214,7 @@
   }
 
   function initHeroVideo() {
-    bindAutoplayVideo(document.querySelector('.hero__visual'), document.getElementById('hero-video'));
+    bindAutoplayVideo(document.getElementById('top'), document.getElementById('hero-video'));
   }
 
   function initVesselVideo() {

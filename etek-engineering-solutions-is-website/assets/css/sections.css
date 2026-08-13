@@ -6,7 +6,7 @@
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
-   1. Hero
+   1. Hero — full-bleed workstation / data-centre media band
    ------------------------------------------------------------------------- */
 .hero {
   position: relative;
@@ -14,21 +14,89 @@
   overflow: hidden;
 }
 
+.hero--media {
+  display: flex;
+  align-items: center;
+  /* Match the 16:9 video so the full frame shows with no top/bottom crop */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 0;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  color: var(--brand-white);
+  isolation: isolate;
+  background-color: #010f16;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background-color: #010f16;
+  display: grid;
+  place-items: center;
+}
+
+.hero__bg-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Full frame — never crop top or bottom */
+  object-fit: contain;
+  object-position: center center;
+}
+
+.hero--media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* Left-weighted scrim for copy; keep the bottom end-card icons/labels readable */
+  background:
+    linear-gradient(105deg,
+      rgba(1, 21, 29, 0.90) 0%,
+      rgba(1, 21, 29, 0.72) 34%,
+      rgba(2, 42, 57, 0.45) 58%,
+      rgba(1, 21, 29, 0.28) 100%),
+    linear-gradient(180deg,
+      rgba(1, 21, 29, 0.40) 0%,
+      transparent 30%,
+      transparent 72%,
+      rgba(1, 21, 29, 0.28) 100%);
+}
+
 .hero__inner {
   position: relative;
   z-index: var(--z-raised);
   display: grid;
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  width: 100%;
+}
+
+.hero--media .hero__inner {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .hero__copy {
-  max-width: 37rem;
+  max-width: 38rem;
+}
+
+.hero--media .hero__copy {
+  max-width: min(40rem, 100%);
 }
 
 .hero__title {
   margin-block: var(--space-5) var(--space-6);
+}
+
+.hero--media .hero__title {
+  margin-block: var(--space-6) var(--space-5);
+  color: var(--brand-white);
+  font-size: clamp(2.75rem, 5.5vw + 1rem, 4.25rem);
+  font-weight: var(--weight-extrabold);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .hero__title em {
@@ -39,8 +107,31 @@
   color: transparent;
 }
 
+.hero--media .hero__title em {
+  background: linear-gradient(120deg, #b9e9fc 0%, #2dbef7 45%, #a5be00 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .hero__lead {
   max-width: 33rem;
+}
+
+.hero--media .hero__lead {
+  max-width: 34rem;
+  color: rgba(232, 244, 252, 0.86);
+  font-size: clamp(1.0625rem, 0.4vw + 1rem, 1.25rem);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  letter-spacing: 0.01em;
+}
+
+.hero--media .badge--inverse {
+  border-color: rgba(185, 233, 252, 0.22);
+  background-color: rgba(1, 21, 29, 0.45);
+  color: var(--brand-alice-500);
+  backdrop-filter: blur(10px);
 }
 
 .hero__actions {
@@ -69,55 +160,19 @@
   color: var(--color-positive-ink);
 }
 
-/* Visual side: intro video frame */
-.hero__visual {
-  position: relative;
-}
-
-.hero__visual::before {
-  content: '';
-  position: absolute;
-  inset: 12% -6% -14% 4%;
-  z-index: var(--z-base);
-  border-radius: var(--radius-xl);
-  background: var(--gradient-accent);
-  filter: blur(56px);
-  opacity: 0.28;
-}
-
-.hero__frame {
-  position: relative;
-  z-index: var(--z-raised);
-  border: var(--border-hairline);
-  border-radius: var(--radius-lg);
-  background-color: #010f16;
-  box-shadow: var(--shadow-xl);
-  overflow: hidden;
-}
-
-.hero__video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background-color: #010f16;
-}
-
 @media (max-width: 64rem) {
-  .hero__inner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-12);
+  .hero--media {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .hero__bg-video {
+    object-fit: contain;
+    object-position: center center;
   }
 
   .hero__copy {
     max-width: 40rem;
-  }
-
-  .hero__visual {
-    margin-inline: auto;
-    max-width: 40rem;
-    width: 100%;
   }
 }
 
@@ -847,8 +902,14 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Baltic ramp kept continuous with the photo's cool grade so the band reads as
+     one surface with the rest of the ink sections, not a pasted postcard. */
   background:
-    linear-gradient(115deg, rgba(1, 21, 29, 0.95) 0%, rgba(3, 62, 86, 0.86) 55%, rgba(5, 102, 141, 0.72) 100%);
+    linear-gradient(115deg,
+      rgba(1, 21, 29, 0.96) 0%,
+      rgba(2, 42, 57, 0.90) 38%,
+      rgba(3, 62, 86, 0.84) 68%,
+      rgba(5, 102, 141, 0.76) 100%);
 }
 
 .build-cta__inner {

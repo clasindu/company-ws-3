@@ -26,21 +26,27 @@ Pexels entries are identified by their photo id: the original sits at
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
 - `service-builder-*.jpg|webp` - UX Indonesia, Unsplash (`photo-1581291518857-4e27b48ff24e`)
 - `service-offshore-*.jpg|webp` - Annie Spratt, Unsplash (`photo-1522071820081-009f0129c71c`)
-- `intro-poster-*.jpg|webp` - supplied by ETEK. First frame of the hero intro
-  video, not a placeholder.
+- `build-cta-network-*.jpg|webp` - supplied ChatGPT image (Aug 13, 2026). Network
+  racks with ethernet cabling and LED status lights for the
+  "Let's build your solution" band. Graded toward Baltic teal under the overlay.
+- `hero-workstation-*.jpg|webp` - supplied reference still (kept as fallback art).
+  Home hero background now plays `../video/intro_new.mp4`.
+- `intro-new-poster-*.jpg|webp` - first frames of `intro_new.mp4` for the hero
+  poster attribute.
+- `intro-poster-*.jpg|webp` - earlier brand-intro poster frames (kept for reuse).
 - `port-terminal-operation-poster-*.jpg|webp` - supplied by ETEK. First frame of
   the products video, not a placeholder.
-- `terminal-aerial-*.jpg|webp` - Chuttersnap, Unsplash (`photo-1494412574643-ff11b0a5c1c3`)
 
 ## Video
 
-- `../video/intro.mp4` - supplied by ETEK. Brand intro (software, AI, ERP, web,
-  mobile), generator watermark removed by cropping, colour polished, and
-  re-encoded silent for the web. Not a placeholder.
+- `../video/intro_new.mp4` - supplied by ETEK. Full-bleed looping hero background
+  (muted, autoplay). Copied from `assets/video/intro_new.mp4`.
+- `../video/intro.mp4` - earlier web encode of the brand intro; kept for reuse.
 - `../video/port-terminal-operation.mp4` - supplied by ETEK. Three clips (vessel
   arrival, container discharge, prime mover to yard) cut into one 25s sequence,
   colour matched to each other, generator watermark removed by cropping, and
   re-encoded silent for the web. Not a placeholder.
 - Graded masters with audio live outside the site tree at
-  `../../../assets/video/intro-master.mp4` and
+  `../../../assets/video/intro-master.mp4`,
+  `../../../assets/video/intro_new.mp4`, and
   `../../../assets/video/port-terminal-operation-master.mp4`.
