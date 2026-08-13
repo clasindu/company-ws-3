@@ -142,14 +142,8 @@
   <!-- ==================================================================
        1. Hero
        ================================================================== -->
-  <section class="hero hero--media" id="top">
-    <div class="hero__bg" aria-hidden="true">
-      <video class="hero__bg-video" id="hero-video" width="1280" height="720"
-             poster="assets/images/intro-new-poster-1600.jpg"
-             autoplay muted loop playsinline preload="metadata">
-        <source src="assets/video/intro_new.mp4" type="video/mp4">
-      </video>
-    </div>
+  <section class="hero" id="top">
+    <div class="mesh" aria-hidden="true"></div>
     <div class="container hero__inner">
       <div class="hero__copy">
         <p class="badge badge--inverse">
@@ -164,6 +158,17 @@
           company. We build software, AI, ERP, web, mobile and custom digital solutions
           for businesses.
         </p>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__frame">
+          <video class="hero__video" id="hero-video" width="1280" height="720"
+                 poster="assets/images/intro-new-poster-1600.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="ETEK Engineering Solutions intro: software, AI, ERP, web and mobile solutions.">
+            <source src="assets/video/intro_new.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>

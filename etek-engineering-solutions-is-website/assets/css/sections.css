@@ -6,63 +6,18 @@
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
-   1. Hero — full-bleed workstation / data-centre media band
+   1. Hero — split: copy left, intro video right
    ------------------------------------------------------------------------- */
 .hero {
   position: relative;
   padding-block: clamp(2.5rem, 5vw, 5rem) var(--space-section);
   overflow: hidden;
-}
-
-.hero--media {
-  display: flex;
-  align-items: center;
-  /* Match the 16:9 video so the full frame shows with no top/bottom crop */
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  min-height: 0;
-  padding-block: clamp(3rem, 6vw, 5rem);
   color: var(--brand-white);
-  isolation: isolate;
-  background-color: #010f16;
-}
-
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  background-color: #010f16;
-  display: grid;
-  place-items: center;
-}
-
-.hero__bg-video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  /* Full frame — never crop top or bottom */
-  object-fit: contain;
-  object-position: center center;
-}
-
-.hero--media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  /* Left-weighted scrim for copy; keep the bottom end-card icons/labels readable */
   background:
-    linear-gradient(105deg,
-      rgba(1, 21, 29, 0.90) 0%,
-      rgba(1, 21, 29, 0.72) 34%,
-      rgba(2, 42, 57, 0.45) 58%,
-      rgba(1, 21, 29, 0.28) 100%),
-    linear-gradient(180deg,
-      rgba(1, 21, 29, 0.40) 0%,
-      transparent 30%,
-      transparent 72%,
-      rgba(1, 21, 29, 0.28) 100%);
+    linear-gradient(165deg,
+      var(--brand-baltic-100) 0%,
+      var(--brand-baltic-200) 48%,
+      var(--brand-baltic-300) 100%);
 }
 
 .hero__inner {
@@ -70,45 +25,27 @@
   z-index: var(--z-raised);
   display: grid;
   align-items: center;
-  width: 100%;
-}
-
-.hero--media .hero__inner {
-  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .hero__copy {
   max-width: 38rem;
 }
 
-.hero--media .hero__copy {
-  max-width: min(40rem, 100%);
-}
-
 .hero__title {
   margin-block: var(--space-5) var(--space-6);
-}
-
-.hero--media .hero__title {
-  margin-block: var(--space-6) var(--space-5);
   color: var(--brand-white);
-  font-size: clamp(2.75rem, 5.5vw + 1rem, 4.25rem);
+  font-size: clamp(2.5rem, 4.2vw + 1rem, 3.85rem);
   font-weight: var(--weight-extrabold);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .hero__title em {
   font-style: normal;
-  background: var(--gradient-accent-vivid);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero--media .hero__title em {
-  background: linear-gradient(120deg, #b9e9fc 0%, #2dbef7 45%, #a5be00 130%);
+  background: linear-gradient(115deg, var(--brand-baltic-900) 0%, var(--brand-baltic-700) 42%, var(--brand-lime-500) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -116,22 +53,16 @@
 
 .hero__lead {
   max-width: 33rem;
-}
-
-.hero--media .hero__lead {
-  max-width: 34rem;
-  color: rgba(232, 244, 252, 0.86);
-  font-size: clamp(1.0625rem, 0.4vw + 1rem, 1.25rem);
-  font-weight: var(--weight-regular);
+  color: var(--brand-alice-500);
+  font-size: clamp(1.0625rem, 0.35vw + 1rem, 1.1875rem);
+  font-weight: var(--weight-medium);
   line-height: var(--leading-relaxed);
-  letter-spacing: 0.01em;
 }
 
-.hero--media .badge--inverse {
-  border-color: rgba(185, 233, 252, 0.22);
+.hero .badge--inverse {
+  border-color: rgba(185, 233, 252, 0.28);
   background-color: rgba(1, 21, 29, 0.45);
   color: var(--brand-alice-500);
-  backdrop-filter: blur(10px);
 }
 
 .hero__actions {
@@ -160,63 +91,60 @@
   color: var(--color-positive-ink);
 }
 
+.hero__visual {
+  position: relative;
+  min-width: 0;
+}
+
+.hero__visual::before {
+  content: '';
+  position: absolute;
+  inset: 10% -8% -12% 6%;
+  z-index: var(--z-base);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-accent);
+  filter: blur(56px);
+  opacity: 0.26;
+}
+
+.hero__frame {
+  position: relative;
+  z-index: var(--z-raised);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background-color: #010f16;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.hero__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center center;
+  background-color: #010f16;
+}
+
 @media (max-width: 64rem) {
-  /* Stack copy above a full uncropped 16:9 video — overlay layout is too short on phones */
-  .hero--media {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    aspect-ratio: auto;
-    min-height: 0;
-    height: auto;
-    padding-block: clamp(2rem, 5vw, 3rem) 0;
-  }
-
-  .hero--media::after {
-    display: none;
-  }
-
   .hero__inner {
-    order: 1;
-    padding-block-end: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-10);
   }
 
-  .hero__bg {
-    position: relative;
-    inset: auto;
-    order: 2;
-    z-index: 0;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    flex: none;
-  }
-
-  .hero__bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-  }
-
-  .hero--media .hero__title {
-    font-size: clamp(2.125rem, 7vw + 0.5rem, 3rem);
-    margin-block: var(--space-4) var(--space-4);
-  }
-
-  .hero--media .hero__lead {
-    font-size: var(--text-md);
+  .hero__copy {
     max-width: none;
   }
 
-  .hero__copy,
-  .hero--media .hero__copy {
-    max-width: none;
+  .hero__visual {
+    margin-inline: auto;
+    max-width: 42rem;
+    width: 100%;
   }
 
-  .hero--media .badge--inverse {
-    max-width: 100%;
-    white-space: normal;
-    text-wrap: balance;
+  .hero__title {
+    font-size: clamp(2.125rem, 6.5vw + 0.5rem, 3rem);
   }
 }
 
