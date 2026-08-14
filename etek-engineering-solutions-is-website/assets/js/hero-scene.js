@@ -27,11 +27,11 @@
   };
 
   var renderer = new THREE.WebGLRenderer({
-    antialias: !isMobile,
+    antialias: true,
     alpha: true,
     powerPreference: 'high-performance'
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 1.75));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 2 : 1.75));
   renderer.setClearColor(0x000000, 0);
   if (renderer.outputColorSpace !== undefined) renderer.outputColorSpace = THREE.SRGBColorSpace;
   stage.appendChild(renderer.domElement);
@@ -41,10 +41,13 @@
   scene.add(root);
 
   /* Camera looks slightly down at the hub (~22°) */
-  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 60);
-  var camBase = { x: 0.00, y: 3.85, z: 8.35 };
+  var camera = new THREE.PerspectiveCamera(isMobile ? 34 : 32, 1, 0.1, 60);
+  var camBase = isMobile
+    ? { x: 0.00, y: 3.15, z: 6.55 }
+    : { x: 0.00, y: 3.85, z: 8.35 };
+  var lookY = isMobile ? 0.72 : 0.55;
   camera.position.set(camBase.x, camBase.y, camBase.z);
-  camera.lookAt(0, 0.55, 0);
+  camera.lookAt(0, lookY, 0);
 
   scene.add(new THREE.AmbientLight(0x6e97b8, 0.48));
   var key = new THREE.DirectionalLight(0xffffff, 0.95);
@@ -136,27 +139,30 @@
 
   function makeLabel(text) {
     var c = document.createElement('canvas');
-    c.width = 220;
-    c.height = 56;
+    var lw = isMobile ? 352 : 220;
+    var lh = isMobile ? 90 : 56;
+    c.width = lw;
+    c.height = lh;
     var ctx = c.getContext('2d');
-    ctx.clearRect(0, 0, 220, 56);
-    ctx.fillStyle = 'rgba(0, 22, 54, 0.62)';
-    roundRect(ctx, 18, 10, 184, 36, 9);
+    ctx.clearRect(0, 0, lw, lh);
+    ctx.fillStyle = 'rgba(0, 22, 54, 0.72)';
+    roundRect(ctx, lw * 0.08, lh * 0.18, lw * 0.84, lh * 0.64, isMobile ? 14 : 9);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(45,190,247,0.45)';
-    ctx.lineWidth = 1.4;
+    ctx.strokeStyle = 'rgba(45,190,247,0.55)';
+    ctx.lineWidth = isMobile ? 2.2 : 1.4;
     ctx.stroke();
-    ctx.font = '600 18px Inter, system-ui, sans-serif';
+    ctx.font = isMobile ? '700 36px Inter, system-ui, sans-serif' : '600 18px Inter, system-ui, sans-serif';
     ctx.fillStyle = '#ebf2fa';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, 110, 28);
+    ctx.fillText(text, lw * 0.5, lh * 0.5);
     var tex = new THREE.CanvasTexture(c);
     if (tex.colorSpace !== undefined) tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = 4;
     var sprite = new THREE.Sprite(
-      new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.88 })
+      new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.92 })
     );
-    sprite.scale.set(1.05, 0.27, 1);
+    sprite.scale.set(isMobile ? 1.55 : 1.05, isMobile ? 0.4 : 0.27, 1);
     return sprite;
   }
 
@@ -200,6 +206,13 @@
     mobile: new THREE.Vector3(0.28, 0.08, 1.62),
     monitor: new THREE.Vector3(2.18, 0.52, 1.18)
   };
+
+  if (isMobile) {
+    POS.web.set(-1.78, 0.38, -0.28);
+    POS.erp.set(-1.78, 1.50, -0.48);
+    POS.laptop.set(-1.72, 0.10, 1.22);
+    POS.mobile.set(0.22, 0.08, 1.38);
+  }
 
   /* ---- Subtle circular platform ---- */
   var platform = new THREE.Group();
@@ -333,21 +346,21 @@
   var erp = null;
   var analytics = null;
 
+  web = makePanel('WEB', isMobile ? 0.7 : 0.78, isMobile ? 0.44 : 0.5);
+  web.position.copy(POS.web);
+  web.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
+  attachLabel(web, 'WEB', 0.42);
+  addHover(web, 'web', 0.5);
+  root.add(web);
+
+  erp = makePanel('ERP', isMobile ? 0.64 : 0.72, isMobile ? 0.4 : 0.46);
+  erp.position.copy(POS.erp);
+  erp.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
+  attachLabel(erp, 'ERP', 0.4);
+  addHover(erp, 'erp', 0.48);
+  root.add(erp);
+
   if (!isMobile) {
-    web = makePanel('WEB', 0.78, 0.5);
-    web.position.copy(POS.web);
-    web.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-    attachLabel(web, 'WEB', 0.42);
-    addHover(web, 'web', 0.5);
-    root.add(web);
-
-    erp = makePanel('ERP', 0.72, 0.46);
-    erp.position.copy(POS.erp);
-    erp.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-    attachLabel(erp, 'ERP', 0.4);
-    addHover(erp, 'erp', 0.48);
-    root.add(erp);
-
     analytics = makePanel('APP', 0.82, 0.52);
     analytics.position.copy(POS.analytics);
     analytics.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
@@ -646,7 +659,7 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
     /* Keep 8–12% visual margin by slightly scaling down */
-    root.scale.setScalar(isMobile ? 0.72 : isTablet ? 0.84 : 0.92);
+    root.scale.setScalar(isMobile ? 1.0 : isTablet ? 0.96 : 0.92);
   }
   resize();
   window.addEventListener('resize', resize);
@@ -684,13 +697,13 @@
       if (enableParallax) {
         camera.position.x = camBase.x + Math.sin(sway) * 0.08 + pointer.x * 0.28;
         camera.position.y = camBase.y + Math.sin(sway * 0.7) * 0.04 - pointer.y * 0.16;
-        camera.lookAt(0 + pointer.x * 0.06, 0.55 - pointer.y * 0.04, 0);
+        camera.lookAt(0 + pointer.x * 0.06, lookY - pointer.y * 0.04, 0);
         root.rotation.y = pointer.x * 0.04;
         root.rotation.x = pointer.y * 0.02;
         updateHover();
       } else {
         camera.position.x = camBase.x + Math.sin(sway) * 0.06;
-        camera.lookAt(0, 0.55, 0);
+        camera.lookAt(0, lookY, 0);
       }
 
       hub.userData.core.scale.setScalar(0.94 + Math.sin(t * 2.1) * 0.1);

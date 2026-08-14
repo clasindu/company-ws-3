@@ -134,7 +134,7 @@
 @media (max-width: 64rem) {
   .hero__inner {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-10);
+    gap: var(--space-8);
   }
 
   .hero__copy {
@@ -148,13 +148,34 @@
   }
 
   .hero__frame {
-    aspect-ratio: 16 / 11;
-    min-height: clamp(16rem, 52vw, 26rem);
+    aspect-ratio: 5 / 4;
+    min-height: clamp(20rem, 62vw, 30rem);
     cursor: default;
   }
 
   .hero__title {
     font-size: clamp(2.125rem, 6.5vw + 0.5rem, 3rem);
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    padding-block: 1.75rem 1.5rem;
+  }
+
+  .hero__inner {
+    gap: 1.15rem;
+  }
+
+  .hero__visual {
+    max-width: none;
+    width: 100%;
+  }
+
+  .hero__frame {
+    aspect-ratio: 1 / 1;
+    min-height: clamp(22rem, 92vw, 30rem);
+    width: 100%;
   }
 }
 
