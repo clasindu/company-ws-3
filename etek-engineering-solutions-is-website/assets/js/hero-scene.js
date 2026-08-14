@@ -667,7 +667,7 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
     /* Keep 8–12% visual margin by slightly scaling down */
-    root.scale.setScalar(isMobile ? 0.88 : isTablet ? 0.96 : 0.92);
+    root.scale.setScalar(isMobile ? 0.72 : isTablet ? 0.96 : 0.92);
     placePhoneLabel();
   }
   resize();
