@@ -41,11 +41,11 @@
   scene.add(root);
 
   /* Camera looks slightly down at the hub (~22°) */
-  var camera = new THREE.PerspectiveCamera(isMobile ? 34 : 32, 1, 0.1, 60);
+  var camera = new THREE.PerspectiveCamera(isMobile ? 36 : 32, 1, 0.1, 60);
   var camBase = isMobile
-    ? { x: 0.00, y: 3.15, z: 6.55 }
+    ? { x: 0.00, y: 3.45, z: 8.15 }
     : { x: 0.00, y: 3.85, z: 8.35 };
-  var lookY = isMobile ? 0.72 : 0.55;
+  var lookY = isMobile ? 0.62 : 0.55;
   camera.position.set(camBase.x, camBase.y, camBase.z);
   camera.lookAt(0, lookY, 0);
 
@@ -162,7 +162,7 @@
     var sprite = new THREE.Sprite(
       new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.92 })
     );
-    sprite.scale.set(isMobile ? 1.55 : 1.05, isMobile ? 0.4 : 0.27, 1);
+    sprite.scale.set(isMobile ? 1.18 : 1.05, isMobile ? 0.32 : 0.27, 1);
     return sprite;
   }
 
@@ -208,10 +208,13 @@
   };
 
   if (isMobile) {
-    POS.web.set(-1.78, 0.38, -0.28);
-    POS.erp.set(-1.78, 1.50, -0.48);
-    POS.laptop.set(-1.72, 0.10, 1.22);
-    POS.mobile.set(0.22, 0.08, 1.38);
+    POS.ai.set(0.00, 1.68, 0.00);
+    POS.web.set(-1.18, 0.42, -0.18);
+    POS.erp.set(-1.18, 1.32, -0.32);
+    POS.analytics.set(1.18, 1.08, -0.18);
+    POS.laptop.set(-1.12, 0.06, 1.02);
+    POS.mobile.set(0.12, 0.04, 1.18);
+    POS.monitor.set(1.16, 0.42, 0.98);
   }
 
   /* ---- Subtle circular platform ---- */
@@ -232,6 +235,7 @@
   rimRing.position.y = 0.03;
   platform.add(rimRing);
   platform.position.set(0, -0.08, 0.15);
+  if (isMobile) platform.scale.setScalar(0.68);
   root.add(platform);
 
   /* ========================================================================
@@ -346,28 +350,26 @@
   var erp = null;
   var analytics = null;
 
-  web = makePanel('WEB', isMobile ? 0.7 : 0.78, isMobile ? 0.44 : 0.5);
+  web = makePanel('WEB', isMobile ? 0.58 : 0.78, isMobile ? 0.38 : 0.5);
   web.position.copy(POS.web);
   web.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(web, 'WEB', 0.42);
+  attachLabel(web, 'WEB', isMobile ? 0.34 : 0.42);
   addHover(web, 'web', 0.5);
   root.add(web);
 
-  erp = makePanel('ERP', isMobile ? 0.64 : 0.72, isMobile ? 0.4 : 0.46);
+  erp = makePanel('ERP', isMobile ? 0.54 : 0.72, isMobile ? 0.34 : 0.46);
   erp.position.copy(POS.erp);
   erp.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(erp, 'ERP', 0.4);
+  attachLabel(erp, 'ERP', isMobile ? 0.32 : 0.4);
   addHover(erp, 'erp', 0.48);
   root.add(erp);
 
-  if (!isMobile) {
-    analytics = makePanel('APP', 0.82, 0.52);
-    analytics.position.copy(POS.analytics);
-    analytics.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-    attachLabel(analytics, 'ANALYTICS', 0.44);
-    addHover(analytics, 'analytics', 0.52);
-    root.add(analytics);
-  }
+  analytics = makePanel('APP', isMobile ? 0.6 : 0.82, isMobile ? 0.38 : 0.52);
+  analytics.position.copy(POS.analytics);
+  analytics.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
+  attachLabel(analytics, 'ANALYTICS', isMobile ? 0.34 : 0.44);
+  addHover(analytics, 'analytics', 0.52);
+  root.add(analytics);
 
   /* ========================================================================
      7. DEVICES — foreground, facing viewer + toward hub
@@ -391,6 +393,7 @@
     g.add(lid);
     g.position.copy(POS.laptop);
     g.rotation.y = 0.42;
+    if (isMobile) g.scale.setScalar(0.72);
     g.userData.parallax = 1.2;
     addHover(g, 'laptop', 0.85);
     return g;
@@ -476,6 +479,7 @@
     g.add(sc);
     g.position.copy(POS.monitor);
     g.rotation.y = -0.42;
+    if (isMobile) g.scale.setScalar(0.7);
     g.userData.parallax = 1.15;
     addHover(g, 'monitor', 0.9);
     return g;
@@ -486,7 +490,7 @@
   var monitor = createMonitor();
   root.add(laptop);
   root.add(phone);
-  if (!isMobile) root.add(monitor);
+  root.add(monitor);
 
   /* ========================================================================
      DATA PATHS — each has its own clean arc; all meet at hub
@@ -541,13 +545,11 @@
     hubFront.clone().add(new THREE.Vector3(0.12, 0, 0.04)),
     0.1, 0.016, 'mobile', 2, [matLime, matCyan]
   );
-  if (!isMobile) {
-    addPath(
-      hubFront.clone().add(new THREE.Vector3(0.22, 0.02, 0.02)),
-      POS.monitor.clone().add(new THREE.Vector3(-0.35, 0.15, -0.1)),
-      0.12, 0.018, 'monitor', 2, [matCyan, matIce]
-    );
-  }
+  addPath(
+    hubFront.clone().add(new THREE.Vector3(0.22, 0.02, 0.02)),
+    POS.monitor.clone().add(new THREE.Vector3(-0.28, 0.12, -0.08)),
+    0.12, 0.018, 'monitor', 2, [matCyan, matIce]
+  );
 
   if (web) {
     addPath(
@@ -659,7 +661,7 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
     /* Keep 8–12% visual margin by slightly scaling down */
-    root.scale.setScalar(isMobile ? 1.0 : isTablet ? 0.96 : 0.92);
+    root.scale.setScalar(isMobile ? 0.82 : isTablet ? 0.96 : 0.92);
   }
   resize();
   window.addEventListener('resize', resize);
@@ -679,8 +681,7 @@
     stage.style.cursor = hovered ? 'pointer' : 'grab';
   }
 
-  var fg = [laptop, phone];
-  if (!isMobile) fg.push(monitor);
+  var fg = [laptop, phone, monitor];
 
   function tick() {
     requestAnimationFrame(tick);
