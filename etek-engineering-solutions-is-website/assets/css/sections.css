@@ -173,8 +173,8 @@
   }
 
   .hero__frame {
-    aspect-ratio: 1 / 1;
-    min-height: clamp(24rem, 96vw, 32rem);
+    aspect-ratio: 5 / 4;
+    min-height: clamp(20rem, 88vw, 30rem);
     width: 100%;
   }
 }

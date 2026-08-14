@@ -31,7 +31,7 @@
     alpha: true,
     powerPreference: 'high-performance'
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 2.25 : 1.75));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 2.25 : 2));
   renderer.setClearColor(0x000000, 0);
   if (renderer.outputColorSpace !== undefined) renderer.outputColorSpace = THREE.SRGBColorSpace;
   stage.appendChild(renderer.domElement);
@@ -41,11 +41,9 @@
   scene.add(root);
 
   /* Camera looks slightly down at the hub (~22°) */
-  var camera = new THREE.PerspectiveCamera(isMobile ? 36 : 32, 1, 0.1, 60);
-  var camBase = isMobile
-    ? { x: 0.00, y: 3.28, z: 7.55 }
-    : { x: 0.00, y: 3.85, z: 8.35 };
-  var lookY = isMobile ? 0.62 : 0.55;
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 60);
+  var camBase = { x: 0.00, y: 3.85, z: 8.35 };
+  var lookY = 0.55;
   camera.position.set(camBase.x, camBase.y, camBase.z);
   camera.lookAt(0, lookY, 0);
 
@@ -92,9 +90,10 @@
 
   function makeScreen(kind) {
     var c = document.createElement('canvas');
-    c.width = 256;
-    c.height = 160;
+    c.width = 512;
+    c.height = 320;
     var ctx = c.getContext('2d');
+    ctx.scale(2, 2);
     var g = ctx.createLinearGradient(0, 0, 0, 160);
     g.addColorStop(0, '#0c2744');
     g.addColorStop(1, '#071828');
@@ -113,6 +112,7 @@
       ctx.fillRect(132, 48, 108, 32);
       ctx.fillRect(132, 88, 108, 32);
       ctx.strokeStyle = 'rgba(45,190,247,0.7)';
+      ctx.lineWidth = 1.25;
       ctx.beginPath();
       ctx.moveTo(22, 104);
       ctx.lineTo(48, 82);
@@ -137,38 +137,39 @@
     tex.generateMipmaps = false;
     tex.minFilter = THREE.LinearFilter;
     tex.magFilter = THREE.LinearFilter;
+    tex.anisotropy = 8;
     return tex;
   }
 
   function makeLabel(text) {
     var c = document.createElement('canvas');
-    var lw = isMobile ? 352 : 220;
-    var lh = isMobile ? 90 : 56;
+    var lw = 440;
+    var lh = 112;
     c.width = lw;
     c.height = lh;
     var ctx = c.getContext('2d');
     ctx.clearRect(0, 0, lw, lh);
     ctx.fillStyle = 'rgba(0, 22, 54, 0.72)';
-    roundRect(ctx, lw * 0.08, lh * 0.18, lw * 0.84, lh * 0.64, isMobile ? 14 : 9);
+    roundRect(ctx, lw * 0.08, lh * 0.18, lw * 0.84, lh * 0.64, 16);
     ctx.fill();
     ctx.strokeStyle = 'rgba(45,190,247,0.55)';
-    ctx.lineWidth = isMobile ? 2.2 : 1.4;
+    ctx.lineWidth = 2.6;
     ctx.stroke();
-    ctx.font = isMobile ? '700 36px Inter, system-ui, sans-serif' : '600 18px Inter, system-ui, sans-serif';
+    ctx.font = '700 36px Inter, system-ui, sans-serif';
     ctx.fillStyle = '#ebf2fa';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, lw * 0.5, lh * 0.5);
     var tex = new THREE.CanvasTexture(c);
     if (tex.colorSpace !== undefined) tex.colorSpace = THREE.SRGBColorSpace;
-    tex.anisotropy = 4;
+    tex.anisotropy = 8;
     tex.generateMipmaps = false;
     tex.minFilter = THREE.LinearFilter;
     tex.magFilter = THREE.LinearFilter;
     var sprite = new THREE.Sprite(
       new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.92 })
     );
-    sprite.scale.set(isMobile ? 1.18 : 1.05, isMobile ? 0.32 : 0.27, 1);
+    sprite.scale.set(1.22, 0.32, 1);
     return sprite;
   }
 
@@ -209,19 +210,9 @@
     erp: new THREE.Vector3(-2.18, 1.54, -0.62),
     analytics: new THREE.Vector3(2.18, 1.00, -0.42),
     laptop: new THREE.Vector3(-2.12, 0.10, 1.38),
-    mobile: new THREE.Vector3(0.28, 0.08, 1.62),
+    mobile: new THREE.Vector3(0.22, 0.42, 2.88),
     monitor: new THREE.Vector3(2.18, 0.52, 1.18)
   };
-
-  if (isMobile) {
-    POS.ai.set(0.00, 1.68, 0.00);
-    POS.web.set(-1.18, 0.42, -0.18);
-    POS.erp.set(-1.18, 1.32, -0.32);
-    POS.analytics.set(1.18, 1.08, -0.18);
-    POS.laptop.set(-1.12, 0.06, 1.02);
-    POS.mobile.set(0.12, 0.04, 1.18);
-    POS.monitor.set(1.16, 0.42, 0.98);
-  }
 
   /* ---- Subtle circular platform ---- */
   var platform = new THREE.Group();
@@ -241,7 +232,6 @@
   rimRing.position.y = 0.03;
   platform.add(rimRing);
   platform.position.set(0, -0.08, 0.15);
-  if (isMobile) platform.scale.setScalar(0.68);
   root.add(platform);
 
   /* ========================================================================
@@ -356,24 +346,24 @@
   var erp = null;
   var analytics = null;
 
-  web = makePanel('WEB', isMobile ? 0.58 : 0.78, isMobile ? 0.38 : 0.5);
+  web = makePanel('WEB', 0.78, 0.5);
   web.position.copy(POS.web);
   web.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(web, 'WEB', isMobile ? 0.34 : 0.42);
+  attachLabel(web, 'WEB', 0.42);
   addHover(web, 'web', 0.5);
   root.add(web);
 
-  erp = makePanel('ERP', isMobile ? 0.54 : 0.72, isMobile ? 0.34 : 0.46);
+  erp = makePanel('ERP', 0.72, 0.46);
   erp.position.copy(POS.erp);
   erp.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(erp, 'ERP', isMobile ? 0.32 : 0.4);
+  attachLabel(erp, 'ERP', 0.4);
   addHover(erp, 'erp', 0.48);
   root.add(erp);
 
-  analytics = makePanel('APP', isMobile ? 0.6 : 0.82, isMobile ? 0.38 : 0.52);
+  analytics = makePanel('APP', 0.82, 0.52);
   analytics.position.copy(POS.analytics);
   analytics.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(analytics, 'ANALYTICS', isMobile ? 0.34 : 0.44);
+  attachLabel(analytics, 'ANALYTICS', 0.44);
   addHover(analytics, 'analytics', 0.52);
   root.add(analytics);
 
@@ -399,7 +389,6 @@
     g.add(lid);
     g.position.copy(POS.laptop);
     g.rotation.y = 0.42;
-    if (isMobile) g.scale.setScalar(0.72);
     g.userData.parallax = 1.2;
     addHover(g, 'laptop', 0.85);
     return g;
@@ -407,6 +396,7 @@
 
   function createPhone() {
     var g = new THREE.Group();
+    var body = new THREE.Group();
 
     function roundRectShape(w, h, r) {
       var s = new THREE.Shape();
@@ -436,14 +426,14 @@
       curveSegments: 12
     });
     bodyGeo.translate(0, 0, -0.012);
-    g.add(new THREE.Mesh(bodyGeo, bodyMat));
+    body.add(new THREE.Mesh(bodyGeo, bodyMat));
 
     var screen = new THREE.Mesh(
       new THREE.ShapeGeometry(roundRectShape(0.304, 0.668, 0.048), 16),
       new THREE.MeshBasicMaterial({ map: makeScreen('MOBILE') })
     );
     screen.position.z = 0.012;
-    g.add(screen);
+    body.add(screen);
 
     var island = new THREE.Mesh(
       new THREE.CapsuleGeometry(0.011, 0.072, 6, 12),
@@ -451,19 +441,24 @@
     );
     island.rotation.z = Math.PI / 2;
     island.position.set(0, 0.268, 0.014);
-    g.add(island);
+    body.add(island);
 
     var pwr = new THREE.Mesh(new THREE.BoxGeometry(0.005, 0.068, 0.012), matMetalLite);
     pwr.position.set(0.166, 0.06, 0);
-    g.add(pwr);
+    body.add(pwr);
     var vol = new THREE.Mesh(new THREE.BoxGeometry(0.005, 0.092, 0.012), matMetalLite);
     vol.position.set(-0.166, 0.09, 0);
-    g.add(vol);
+    body.add(vol);
+
+    body.rotation.set(-0.35, 0.08, 0);
+    g.add(body);
+
+    var lab = makeLabel('MOBILE');
+    g.add(lab);
+    g.userData.mobileLabel = lab;
 
     g.position.copy(POS.mobile);
-    g.rotation.set(-0.35, 0.08, 0);
     g.userData.parallax = 1.25;
-    attachLabel(g, 'MOBILE', 0.58);
     addHover(g, 'mobile', 0.5);
     return g;
   }
@@ -485,7 +480,6 @@
     g.add(sc);
     g.position.copy(POS.monitor);
     g.rotation.y = -0.42;
-    if (isMobile) g.scale.setScalar(0.7);
     g.userData.parallax = 1.15;
     addHover(g, 'monitor', 0.9);
     return g;
@@ -659,6 +653,12 @@
     stage.addEventListener('pointerleave', onLeave);
   }
 
+  function placePhoneLabel() {
+    var lab = phone.userData.mobileLabel;
+    if (!lab) return;
+    lab.position.set(0, -0.54, 0.04);
+  }
+
   function resize() {
     var w = stage.clientWidth || 640;
     var h = stage.clientHeight || 420;
@@ -667,7 +667,8 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
     /* Keep 8–12% visual margin by slightly scaling down */
-    root.scale.setScalar(isMobile ? 0.92 : isTablet ? 0.96 : 0.92);
+    root.scale.setScalar(isMobile ? 0.88 : isTablet ? 0.96 : 0.92);
+    placePhoneLabel();
   }
   resize();
   window.addEventListener('resize', resize);
