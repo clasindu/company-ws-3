@@ -160,11 +160,11 @@
 
 @media (max-width: 48rem) {
   .hero {
-    padding-block: 1.75rem 1.5rem;
+    padding-block: 1.5rem 1.15rem;
   }
 
   .hero__inner {
-    gap: 1.15rem;
+    gap: 0.85rem;
   }
 
   .hero__visual {
@@ -174,7 +174,7 @@
 
   .hero__frame {
     aspect-ratio: 1 / 1;
-    min-height: clamp(22rem, 92vw, 30rem);
+    min-height: clamp(24rem, 96vw, 32rem);
     width: 100%;
   }
 }

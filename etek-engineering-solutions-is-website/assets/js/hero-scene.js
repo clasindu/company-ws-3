@@ -31,7 +31,7 @@
     alpha: true,
     powerPreference: 'high-performance'
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 2 : 1.75));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 2.25 : 1.75));
   renderer.setClearColor(0x000000, 0);
   if (renderer.outputColorSpace !== undefined) renderer.outputColorSpace = THREE.SRGBColorSpace;
   stage.appendChild(renderer.domElement);
@@ -43,7 +43,7 @@
   /* Camera looks slightly down at the hub (~22°) */
   var camera = new THREE.PerspectiveCamera(isMobile ? 36 : 32, 1, 0.1, 60);
   var camBase = isMobile
-    ? { x: 0.00, y: 3.45, z: 8.15 }
+    ? { x: 0.00, y: 3.28, z: 7.55 }
     : { x: 0.00, y: 3.85, z: 8.35 };
   var lookY = isMobile ? 0.62 : 0.55;
   camera.position.set(camBase.x, camBase.y, camBase.z);
@@ -134,6 +134,9 @@
     }
     var tex = new THREE.CanvasTexture(c);
     if (tex.colorSpace !== undefined) tex.colorSpace = THREE.SRGBColorSpace;
+    tex.generateMipmaps = false;
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
     return tex;
   }
 
@@ -159,6 +162,9 @@
     var tex = new THREE.CanvasTexture(c);
     if (tex.colorSpace !== undefined) tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 4;
+    tex.generateMipmaps = false;
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
     var sprite = new THREE.Sprite(
       new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.92 })
     );
@@ -661,7 +667,7 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
     /* Keep 8–12% visual margin by slightly scaling down */
-    root.scale.setScalar(isMobile ? 0.82 : isTablet ? 0.96 : 0.92);
+    root.scale.setScalar(isMobile ? 0.92 : isTablet ? 0.96 : 0.92);
   }
   resize();
   window.addEventListener('resize', resize);
