@@ -1069,7 +1069,7 @@
    ------------------------------------------------------------------------- */
 .site-footer {
   padding-block: var(--space-16) var(--space-8);
-  background: var(--gradient-ink);
+  background: #00296b;
   color: var(--color-text-inverse-muted);
 }
 

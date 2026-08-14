@@ -143,7 +143,7 @@
        1. Hero
        ================================================================== -->
   <section class="hero" id="top">
-    <div class="mesh" aria-hidden="true"></div>
+    <canvas class="hero__particles" id="hero-particles" aria-hidden="true"></canvas>
     <div class="container hero__inner">
       <div class="hero__copy">
         <p class="badge badge--inverse">
@@ -161,13 +161,8 @@
       </div>
 
       <div class="hero__visual">
-        <div class="hero__frame">
-          <video class="hero__video" id="hero-video" width="1280" height="720"
-                 poster="assets/images/intro-new-poster-1600.jpg"
-                 autoplay muted loop playsinline preload="metadata"
-                 aria-label="ETEK Engineering Solutions intro: software, AI, ERP, web and mobile solutions.">
-            <source src="assets/video/intro_new.mp4" type="video/mp4">
-          </video>
+        <div class="hero__frame" id="hero-scene" role="img"
+             aria-label="Interactive 3D digital operations center: AI processing connected to a central hub, with data flowing to laptop, mobile, monitor, web, ERP and analytics.">
         </div>
       </div>
     </div>
@@ -1178,6 +1173,8 @@
 
 <!-- Classic script, not a module: module scripts are blocked when the page is
      opened straight from disk. -->
+<script src="assets/js/vendor/three.min.js" defer></script>
+<script src="assets/js/hero-scene.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -213,10 +213,6 @@
     apply();
   }
 
-  function initHeroVideo() {
-    bindAutoplayVideo(document.querySelector('.hero__visual'), document.getElementById('hero-video'));
-  }
-
   function initVesselVideo() {
     bindAutoplayVideo(document.getElementById('vessel'), document.getElementById('vessel-video'));
   }
@@ -296,16 +292,143 @@
     });
   }
 
+  /* ---------------------------------------------------------------------
+     Hero — subtle white particles across the full navy section
+     --------------------------------------------------------------------- */
+  function initHeroParticles() {
+    var hero = document.querySelector('.hero');
+    var canvas = document.getElementById('hero-particles');
+    if (!hero || !canvas) return;
+
+    var ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    var particles = [];
+    var running = true;
+    var dpr = 1;
+    var w = 0;
+    var h = 0;
+    var start = 0;
+
+    function seed() {
+      particles = [];
+      var cols = 14;
+      var rows = 8;
+      var gx;
+      var gy;
+      var roll;
+      var size;
+      var p;
+
+      for (gy = 0; gy < rows; gy++) {
+        for (gx = 0; gx < cols; gx++) {
+          if (Math.random() < 0.16) continue;
+          roll = Math.random();
+          if (roll > 0.9) size = 2.3 + Math.random() * 0.7;
+          else if (roll > 0.55) size = 1.6 + Math.random() * 0.5;
+          else size = 1 + Math.random() * 0.55;
+          p = {
+            ox: ((gx + 0.1 + Math.random() * 0.8) / cols) * w,
+            oy: ((gy + 0.1 + Math.random() * 0.8) / rows) * h,
+            r: size,
+            aBase: 0.22 + Math.random() * 0.38,
+            ampX: 14 + Math.random() * 22,
+            ampY: 16 + Math.random() * 26,
+            spdX: 0.35 + Math.random() * 0.55,
+            spdY: 0.4 + Math.random() * 0.65,
+            drift: (Math.random() < 0.5 ? -1 : 1) * (5 + Math.random() * 9),
+            fade: 0.35 + Math.random() * 0.55,
+            phase: Math.random() * Math.PI * 2
+          };
+          particles.push(p);
+        }
+      }
+    }
+
+    function resize() {
+      var nextW = hero.clientWidth || 1;
+      var nextH = hero.clientHeight || 1;
+      var nextDpr = Math.min(window.devicePixelRatio || 1, 1.75);
+      if (nextW === w && nextH === h && nextDpr === dpr && canvas.width) return;
+      var sx = w ? nextW / w : 1;
+      var sy = h ? nextH / h : 1;
+      dpr = nextDpr;
+      w = nextW;
+      h = nextH;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      if (!particles.length) seed();
+      else {
+        var i;
+        for (i = 0; i < particles.length; i++) {
+          particles[i].ox *= sx;
+          particles[i].oy *= sy;
+        }
+      }
+    }
+
+    function wrap(v, max) {
+      if (v < -8) return v + max + 16;
+      if (v > max + 8) return v - max - 16;
+      return v;
+    }
+
+    function paint(t) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var i;
+      var p;
+      var x;
+      var y;
+      var alpha;
+      for (i = 0; i < particles.length; i++) {
+        p = particles[i];
+        x = wrap(p.ox + Math.sin(t * p.spdX + p.phase) * p.ampX + p.drift * t * 0.12, w);
+        y = wrap(p.oy + Math.cos(t * p.spdY + p.phase * 0.9) * p.ampY, h);
+        alpha = p.aBase * (0.5 + 0.5 * (0.5 + 0.5 * Math.sin(t * p.fade + p.phase)));
+        ctx.beginPath();
+        ctx.arc(x * dpr, y * dpr, p.r * 2.4 * dpr, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + (alpha * 0.2) + ')';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x * dpr, y * dpr, p.r * dpr, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')';
+        ctx.fill();
+      }
+    }
+
+    function tick(now) {
+      requestAnimationFrame(tick);
+      if (!running) return;
+      paint((now - start) / 1000);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(resize).observe(hero);
+    }
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        running = entries[0].isIntersecting;
+      }, { threshold: 0.02 }).observe(hero);
+    }
+
+    start = performance.now();
+    paint(0);
+    requestAnimationFrame(tick);
+  }
+
   function init() {
     initYear();
     initTheme();
     initHeader();
     initTabs();
     initCarousel();
-    initHeroVideo();
     initVesselVideo();
     initReveal();
     initNavHighlight();
+    initHeroParticles();
   }
 
   if (document.readyState === 'loading') {
