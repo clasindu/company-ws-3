@@ -427,6 +427,17 @@
   position: relative;
   overflow: hidden;
   background: #00296b;
+  color: var(--brand-white);
+}
+
+.products .eyebrow,
+.products .lead,
+.products .text-muted,
+.products .feature-list li,
+.products .product-card__text,
+.products .product-card__meta,
+.products .product-card__tag {
+  color: var(--brand-white);
 }
 
 .products__mesh {
@@ -536,7 +547,7 @@
 }
 
 .product-card__text {
-  color: var(--color-text-inverse-muted);
+  color: var(--brand-white);
   font-size: var(--text-base);
 }
 
@@ -544,7 +555,7 @@
   margin-block-start: auto;
   padding-block-start: var(--space-4);
   border-block-start: var(--border-hairline-inverse);
-  color: var(--brand-baltic-800);
+  color: var(--brand-white);
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-wide);

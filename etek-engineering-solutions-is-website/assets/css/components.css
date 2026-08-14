@@ -1070,7 +1070,7 @@
 .site-footer {
   padding-block: var(--space-16) var(--space-8);
   background: #00296b;
-  color: var(--color-text-inverse-muted);
+  color: var(--brand-white);
 }
 
 .site-footer h2,
@@ -1079,7 +1079,7 @@
 }
 
 .site-footer a {
-  color: var(--color-text-inverse-muted);
+  color: var(--brand-white);
   text-decoration: none;
 }
 
