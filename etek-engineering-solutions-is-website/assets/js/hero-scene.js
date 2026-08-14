@@ -141,7 +141,8 @@
     return tex;
   }
 
-  function makeLabel(text) {
+  function makeLabel(text, sizeMul) {
+    var mul = sizeMul || 1;
     var c = document.createElement('canvas');
     var lw = isMobile ? 704 : 440;
     var lh = isMobile ? 180 : 112;
@@ -169,7 +170,9 @@
     var sprite = new THREE.Sprite(
       new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.96 })
     );
-    sprite.scale.set(isMobile ? 1.72 : 1.42, isMobile ? 0.45 : 0.37, 1);
+    var sx = isMobile ? 1.72 : 1.42;
+    var sy = isMobile ? 0.45 : 0.37;
+    sprite.scale.set(sx * mul, sy * mul, 1);
     return sprite;
   }
 
@@ -191,8 +194,8 @@
     hoverHits.push(hit);
   }
 
-  function attachLabel(group, text, y) {
-    var lab = makeLabel(text);
+  function attachLabel(group, text, y, sizeMul) {
+    var lab = makeLabel(text, sizeMul);
     lab.position.set(0, y, 0);
     group.add(lab);
   }
@@ -322,7 +325,7 @@
   aiPort.position.y = -0.22;
   ai.add(aiPort);
   ai.position.copy(POS.ai);
-  attachLabel(ai, 'AI', 0.42);
+  attachLabel(ai, 'AI', 0.5, 1.18);
   addHover(ai, 'ai', 0.48);
   root.add(ai);
 
@@ -349,21 +352,21 @@
   web = makePanel('WEB', 0.78, 0.5);
   web.position.copy(POS.web);
   web.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(web, 'WEB', 0.42);
+  attachLabel(web, 'WEB', 0.5, 1.18);
   addHover(web, 'web', 0.5);
   root.add(web);
 
   erp = makePanel('ERP', 0.72, 0.46);
   erp.position.copy(POS.erp);
   erp.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(erp, 'ERP', 0.4);
+  attachLabel(erp, 'ERP', 0.48, 1.18);
   addHover(erp, 'erp', 0.48);
   root.add(erp);
 
   analytics = makePanel('APP', 0.82, 0.52);
   analytics.position.copy(POS.analytics);
   analytics.lookAt(camBase.x, camBase.y * 0.35, camBase.z);
-  attachLabel(analytics, 'ANALYTICS', 0.44);
+  attachLabel(analytics, 'ANALYTICS', 0.52, 1.22);
   addHover(analytics, 'analytics', 0.52);
   root.add(analytics);
 
