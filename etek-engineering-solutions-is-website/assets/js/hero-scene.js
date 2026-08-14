@@ -169,7 +169,7 @@
     var sprite = new THREE.Sprite(
       new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.96 })
     );
-    sprite.scale.set(isMobile ? 1.52 : 1.22, isMobile ? 0.4 : 0.32, 1);
+    sprite.scale.set(isMobile ? 1.72 : 1.42, isMobile ? 0.45 : 0.37, 1);
     return sprite;
   }
 
@@ -656,7 +656,7 @@
   function placePhoneLabel() {
     var lab = phone.userData.mobileLabel;
     if (!lab) return;
-    lab.position.set(0, -0.54, 0.04);
+    lab.position.set(0, -0.62, 0.04);
   }
 
   function resize() {
