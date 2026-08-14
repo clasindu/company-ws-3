@@ -143,20 +143,20 @@
 
   function makeLabel(text) {
     var c = document.createElement('canvas');
-    var lw = 440;
-    var lh = 112;
+    var lw = isMobile ? 704 : 440;
+    var lh = isMobile ? 180 : 112;
     c.width = lw;
     c.height = lh;
     var ctx = c.getContext('2d');
     ctx.clearRect(0, 0, lw, lh);
-    ctx.fillStyle = 'rgba(0, 22, 54, 0.72)';
-    roundRect(ctx, lw * 0.08, lh * 0.18, lw * 0.84, lh * 0.64, 16);
+    ctx.fillStyle = 'rgba(0, 22, 54, 0.78)';
+    roundRect(ctx, lw * 0.08, lh * 0.18, lw * 0.84, lh * 0.64, isMobile ? 24 : 16);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(45,190,247,0.55)';
-    ctx.lineWidth = 2.6;
+    ctx.strokeStyle = 'rgba(45,190,247,0.6)';
+    ctx.lineWidth = isMobile ? 3.6 : 2.6;
     ctx.stroke();
-    ctx.font = '700 36px Inter, system-ui, sans-serif';
-    ctx.fillStyle = '#ebf2fa';
+    ctx.font = isMobile ? '700 58px Inter, system-ui, sans-serif' : '700 36px Inter, system-ui, sans-serif';
+    ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, lw * 0.5, lh * 0.5);
@@ -167,9 +167,9 @@
     tex.minFilter = THREE.LinearFilter;
     tex.magFilter = THREE.LinearFilter;
     var sprite = new THREE.Sprite(
-      new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.92 })
+      new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 0.96 })
     );
-    sprite.scale.set(1.22, 0.32, 1);
+    sprite.scale.set(isMobile ? 1.52 : 1.22, isMobile ? 0.4 : 0.32, 1);
     return sprite;
   }
 
