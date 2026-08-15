@@ -446,13 +446,21 @@
 
 .vessel {
   position: relative;
-  border: var(--border-hairline-inverse);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(70% 90% at 50% 8%, rgba(45, 190, 247, 0.16) 0%, transparent 70%),
-    linear-gradient(180deg, #04212d 0%, #010f16 100%);
-  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(115, 212, 250, 0.24);
+  border-radius: var(--radius-xl);
+  background: #073044;
+  box-shadow: 0 22px 48px -20px rgba(1, 21, 29, 0.55);
   overflow: hidden;
+}
+
+.vessel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(125deg, rgba(45, 190, 247, 0.18) 0%, transparent 46%, rgba(165, 190, 0, 0.07) 100%);
+  mix-blend-mode: soft-light;
 }
 
 .vessel__video {
@@ -461,9 +469,8 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background-color: #010f16;
-  /* Fresher look on top of the graded encode — realistic port colours, not neon. */
-  filter: saturate(1.12) contrast(1.06) brightness(1.03);
+  background-color: #073044;
+  filter: saturate(1.45) contrast(1.12) brightness(1.18);
 }
 
 .products__stage-copy {
@@ -501,14 +508,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.86;
+  opacity: 1;
+  filter: brightness(1.08) saturate(1.04);
 }
 
 .product-card__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(1, 21, 29, 0.1) 0%, rgba(1, 21, 29, 0.78) 100%);
+  content: none;
 }
 
 /* Carries its own dark scrim: the photographs behind it range from bright sky
