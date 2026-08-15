@@ -6,49 +6,62 @@
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
-   1. Hero — split: copy left, Three.js scene right (no frame border)
+   1. Hero — full-bleed intro video, copy on the dark left
    ------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  padding-block: clamp(2.5rem, 5vw, 5rem) var(--space-section);
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--layout-header-h));
+  padding-block: clamp(3.5rem, 8vh, 6rem) clamp(3rem, 7vh, 5rem);
   overflow: hidden;
   color: var(--brand-white);
-  background-color: #00296b;
+  background-color: #020617;
 }
 
-/* Full-hero particle field — behind copy and the 3D scene */
-.hero__particles {
-  display: block;
+.hero__media {
   position: absolute;
   inset: 0;
-  z-index: var(--z-base);
+  z-index: 0;
+}
+
+.hero__video {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: 78% 48%;
+}
+
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(1, 8, 22, 0.92) 0%, rgba(1, 8, 22, 0.72) 32%, rgba(1, 8, 22, 0.28) 52%, transparent 70%),
+    linear-gradient(180deg, rgba(1, 8, 22, 0.28) 0%, transparent 24%, transparent 76%, rgba(1, 8, 22, 0.5) 100%);
 }
 
 .hero__inner {
   position: relative;
   z-index: var(--z-raised);
-  display: grid;
-  align-items: center;
-  gap: clamp(2rem, 4vw, 4.5rem);
-  /* Right stage ~45% visual weight without touching copy styles */
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  display: block;
 }
 
 .hero__copy {
-  max-width: 38rem;
+  max-width: 36rem;
 }
 
 .hero__title {
-  margin-block: var(--space-5) var(--space-6);
-  color: var(--brand-white);
-  font-size: clamp(2.5rem, 4.2vw + 1rem, 3.85rem);
+  margin-block: var(--space-6) var(--space-5);
+  color: var(--brand-alice-500);
+  font-size: clamp(2.75rem, 5.2vw + 0.7rem, 4.35rem);
   font-weight: var(--weight-extrabold);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  line-height: 1.02;
+  letter-spacing: -0.042em;
   text-wrap: balance;
+  text-shadow: 0 2px 18px rgba(1, 21, 29, 0.55);
 }
 
 .hero__title em {
@@ -57,20 +70,27 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(1, 21, 29, 0.45));
 }
 
-.hero__lead {
-  max-width: 33rem;
-  color: var(--brand-alice-500);
-  font-size: clamp(1.0625rem, 0.35vw + 1rem, 1.1875rem);
+.hero .hero__lead {
+  max-width: 30rem;
+  color: var(--brand-baltic-900);
+  font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
   font-weight: var(--weight-medium);
-  line-height: var(--leading-relaxed);
+  line-height: 1.65;
+  text-shadow: 0 1px 12px rgba(1, 21, 29, 0.45);
 }
 
 .hero .badge--inverse {
-  border-color: rgba(185, 233, 252, 0.28);
-  background-color: rgba(0, 41, 107, 0.55);
-  color: var(--brand-alice-500);
+  border-color: rgba(185, 233, 252, 0.38);
+  background-color: rgba(1, 21, 29, 0.48);
+  color: var(--brand-baltic-900);
+}
+
+.hero .badge__dot {
+  background-color: var(--brand-lime-600);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-lime-600) 28%, transparent);
 }
 
 .hero__actions {
@@ -99,83 +119,54 @@
   color: var(--color-positive-ink);
 }
 
-.hero__visual {
-  position: relative;
-  min-width: 0;
-  width: 100%;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
-
-.hero__frame {
-  position: relative;
-  z-index: var(--z-raised);
-  width: 100%;
-  aspect-ratio: 5 / 4;
-  min-height: clamp(20rem, 56vh, 36rem);
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  overflow: hidden;
-  cursor: grab;
-  touch-action: none;
-}
-
-.hero__frame canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-  background: transparent;
-  outline: none;
-}
-
 @media (max-width: 64rem) {
-  .hero__inner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-8);
-  }
-
   .hero__copy {
-    max-width: none;
-  }
-
-  .hero__visual {
-    margin-inline: auto;
-    max-width: 42rem;
-    width: 100%;
-  }
-
-  .hero__frame {
-    aspect-ratio: 5 / 4;
-    min-height: clamp(20rem, 62vw, 30rem);
-    cursor: default;
+    max-width: 34rem;
   }
 
   .hero__title {
-    font-size: clamp(2.125rem, 6.5vw + 0.5rem, 3rem);
+    font-size: clamp(2.25rem, 6.4vw + 0.4rem, 3.2rem);
+  }
+
+  .hero__video {
+    object-position: 70% 50%;
+  }
+
+  .hero__veil {
+    background:
+      linear-gradient(180deg, rgba(1, 8, 22, 0.82) 0%, rgba(1, 8, 22, 0.62) 48%, rgba(1, 8, 22, 0.42) 100%),
+      linear-gradient(90deg, rgba(1, 8, 22, 0.7) 0%, transparent 72%);
   }
 }
 
 @media (max-width: 48rem) {
   .hero {
-    padding-block: 1.5rem 1.15rem;
+    min-height: calc(100svh - var(--layout-header-h));
+    padding-block: 2rem 2.25rem;
   }
 
-  .hero__inner {
-    gap: 0.85rem;
+  .hero__title {
+    margin-block: var(--space-5) var(--space-4);
+    font-size: clamp(2.05rem, 8.2vw, 2.7rem);
   }
 
-  .hero__visual {
-    max-width: none;
-    width: 100%;
+  .hero__actions {
+    margin-block-start: var(--space-6);
   }
 
-  .hero__frame {
-    aspect-ratio: 5 / 4;
-    min-height: clamp(20rem, 88vw, 30rem);
-    width: 100%;
+  .hero__video {
+    object-position: 82% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video {
+    display: none;
+  }
+
+  .hero__media {
+    background:
+      #020617 url("../video/new-intro-poster.jpg") center / cover no-repeat;
   }
 }
 

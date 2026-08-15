@@ -143,27 +143,27 @@
        1. Hero
        ================================================================== -->
   <section class="hero" id="top">
-    <canvas class="hero__particles" id="hero-particles" aria-hidden="true"></canvas>
+    <div class="hero__media" aria-hidden="true">
+      <video class="hero__video" id="hero-video" width="1280" height="720"
+             poster="assets/video/new-intro-poster.jpg"
+             autoplay muted loop playsinline preload="metadata">
+        <source src="assets/video/new-intro.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
     <div class="container hero__inner">
       <div class="hero__copy">
         <p class="badge badge--inverse">
           <span class="badge__dot" aria-hidden="true"></span>
-          ETEK products: Noah Depo, Noah Port, Noah Hub, Nippon
+          Intelligent systems for connected operations
         </p>
 
         <h1 class="hero__title">Smart engineering.<br><em>Smarter solutions.</em></h1>
 
         <p class="lead hero__lead">
-          ETEK Engineering Solutions is a software engineering and technology solutions
-          company. We build software, AI, ERP, web, mobile and custom digital solutions
-          for businesses.
+          Data becomes structure. We design software, AI, ERP, web and mobile systems
+          that connect operations into one intelligent platform.
         </p>
-      </div>
-
-      <div class="hero__visual">
-        <div class="hero__frame" id="hero-scene" role="img"
-             aria-label="Interactive 3D digital operations center: AI processing connected to a central hub, with data flowing to laptop, mobile, monitor, web, ERP and analytics.">
-        </div>
       </div>
     </div>
   </section>
@@ -1171,10 +1171,6 @@
 }
 </script>
 
-<!-- Classic script, not a module: module scripts are blocked when the page is
-     opened straight from disk. -->
-<script src="assets/js/vendor/three.min.js" defer></script>
-<script src="assets/js/hero-scene.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
