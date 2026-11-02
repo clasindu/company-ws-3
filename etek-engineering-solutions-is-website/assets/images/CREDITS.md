@@ -19,7 +19,6 @@ Pexels entries are identified by their photo id: the original sits at
 - `dashboard-erp-overview-*.jpg|webp` - Luke Chesser, Unsplash (`photo-1551288049-bebda4e38f71`)
 - `engineering-team-desks-*.jpg|webp` - Alvaro Reyes, Unsplash (`photo-1531482615713-2afd69097998`)
 - `product-noah-depo-*.jpg|webp` - Guillaume Bolduc, Unsplash (`photo-1493946740644-2d8a1f1a6aff`)
-- `product-noah-hub-*.jpg|webp` - Ollie Craig, Pexels (`7519262`)
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
 - `service-builder-*.jpg|webp` - UX Indonesia, Unsplash (`photo-1581291518857-4e27b48ff24e`)
 - `service-offshore-*.jpg|webp` - Annie Spratt, Unsplash (`photo-1522071820081-009f0129c71c`)
