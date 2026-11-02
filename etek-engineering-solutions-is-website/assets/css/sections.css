@@ -91,6 +91,7 @@
 
 /* Noah hero: a light canvas, so the ink plan carries all the contrast. */
 .hero--noah {
+  min-height: min(calc(100svh - var(--layout-header-h)), 60rem);
   color: var(--color-text);
   background-color: var(--color-canvas);
 }
@@ -147,6 +148,11 @@
   --ops-line: rgba(115, 212, 250, 0.24);
   --ops-box: var(--brand-lime-600);
   position: relative;
+  justify-self: end;
+  width: 100%;
+  /* The plan is 2:1 above about 8.75rem of stages, so this keeps it inside
+     the hero on short windows. */
+  max-width: max(24rem, 200svh - 40rem);
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--ops-line);
@@ -156,28 +162,12 @@
   box-shadow: var(--shadow-xl);
 }
 
-.ops__head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
-  border-block-end: 1px solid var(--ops-line);
-}
-
-.ops__title {
-  color: var(--brand-white);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-tight);
-}
-
-.ops__note {
-  margin-inline-end: auto;
-  color: var(--brand-baltic-900);
-  font-size: var(--text-xs);
-}
-
+/* Out of sight until reached by keyboard, which keeps a way to stop the motion. */
 .ops__toggle {
+  position: absolute;
+  z-index: var(--z-raised);
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -185,9 +175,11 @@
   height: 2.25rem;
   border: 1px solid var(--ops-line);
   border-radius: var(--radius-pill);
-  background: none;
+  background-color: var(--brand-baltic-100);
   color: var(--brand-white);
   cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
   transition: background-color var(--dur-fast) var(--ease-out),
               border-color var(--dur-fast) var(--ease-out);
 }
@@ -204,6 +196,8 @@
 .ops__toggle:focus-visible {
   outline: 2px solid var(--brand-white);
   outline-offset: 2px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .ops__toggle .icon {
@@ -349,7 +343,19 @@ ol.ops__stages {
 }
 
 
-@media (max-width: 64rem) {
+@media (max-width: 66rem) {
+  ol.ops__stages {
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 63rem) {
+  ol.ops__stages {
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
   .hero--noah {
     min-height: 0;
   }
@@ -367,7 +373,7 @@ ol.ops__stages {
   }
 
   .ops {
-    max-width: 46rem;
+    max-width: none;
   }
 }
 

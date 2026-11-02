@@ -111,7 +111,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header" id="site-header">
-  <div class="container site-header__inner">
+  <div class="container container--full site-header__inner">
     <!-- LOGO SLOT: the mark is assets/images/etek-mark.svg; the name beside it
          is live text so it stays sharp and follows the theme. -->
     <a class="logo-slot" href="#top" aria-label="ETEK Engineering Solutions, home">
@@ -145,7 +145,7 @@
        1. Hero
        ================================================================== -->
   <section class="hero hero--noah" id="top" aria-labelledby="hero-title">
-    <div class="container hero__inner">
+    <div class="container container--full hero__inner">
       <div class="hero__copy">
         <p class="badge badge--soft">
           <span class="badge__dot" aria-hidden="true"></span>
@@ -175,14 +175,10 @@
            the same journey as text, so the plan itself is hidden from assistive
            technology. Its timing lives in sections.css under "Terminal plan". -->
       <div class="ops" id="hero-ops">
-        <div class="ops__head">
-          <p class="ops__title">Container journey</p>
-          <p class="ops__note">Illustrative</p>
-          <button class="ops__toggle" type="button" id="ops-toggle" aria-label="Pause the animation" hidden>
-            <svg class="icon ops__icon-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
-            <svg class="icon ops__icon-play" aria-hidden="true"><use href="#i-play"></use></svg>
-          </button>
-        </div>
+        <button class="ops__toggle" type="button" id="ops-toggle" aria-label="Pause the animation" hidden>
+          <svg class="icon ops__icon-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
+          <svg class="icon ops__icon-play" aria-hidden="true"><use href="#i-play"></use></svg>
+        </button>
 
         <div class="ops__map" aria-hidden="true">
           <svg class="ops__plan" viewBox="0 0 640 320" focusable="false">
