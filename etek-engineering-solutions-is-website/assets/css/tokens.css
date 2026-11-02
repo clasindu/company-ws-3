@@ -217,8 +217,8 @@
   /* ---------------------------------------------------------------------
      7. Layout
      --------------------------------------------------------------------- */
-  --layout-max: 1200px;
-  --layout-max-wide: 1400px;
+  --layout-max: 75rem;
+  --layout-max-wide: 87.5rem;
   --layout-max-prose: 62ch;
   --layout-header-h: 4.25rem;
   --layout-ring: 1px;

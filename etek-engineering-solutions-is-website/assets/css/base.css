@@ -14,7 +14,11 @@
   margin: 0;
 }
 
+/* Sizes are in rem, so scaling the root keeps the 1440px layout on larger
+   screens. Width sets the scale, 2.46vh stops short windows outgrowing the
+   hero, and 240% is the limit for very large displays. */
 html {
+  font-size: clamp(100%, min(1.111vw, 2.46vh), 240%);
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--layout-header-h) + var(--space-6));
@@ -191,8 +195,12 @@ address {
   max-width: var(--layout-max-wide);
 }
 
+.container--full {
+  max-width: none;
+}
+
 .container--narrow {
-  max-width: 940px;
+  max-width: 58.75rem;
 }
 
 .section {
