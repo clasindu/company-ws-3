@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ETEK — Hero Prism Artifact</title>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/prism-visual.css">
+  <style>
+    html, body { margin: 0; background: #060813; }
+    .site-header { display: none; }
+    .hero { min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <section class="hero" id="top">
+    <div class="prism-visual" id="prism-visual" aria-hidden="true">
+      <canvas class="prism-visual__canvas" id="prism-visual-canvas"></canvas>
+      <div class="prism-visual__badges">
+        <div class="prism-visual__badge" data-beam="0">Software</div>
+        <div class="prism-visual__badge" data-beam="1">AI Solutions</div>
+        <div class="prism-visual__badge" data-beam="2">ERP Systems</div>
+        <div class="prism-visual__badge" data-beam="3">Web Development</div>
+        <div class="prism-visual__badge" data-beam="4">Mobile Apps</div>
+      </div>
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1 class="hero__title">Turning raw data into<br>intelligent structure</h1>
+        <p class="lead hero__lead">
+          Enterprise Software, AI, ERP, Web, and Mobile solutions engineered for scale.
+        </p>
+        <div class="hero__actions">
+          <a class="btn hero__btn hero__btn--primary" href="#contact">Get Started</a>
+          <a class="btn hero__btn hero__btn--secondary" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="assets/js/vendor/three.min.js"></script>
+  <script src="assets/js/prism-visual.js"></script>
+</body>
+</html>

@@ -103,6 +103,8 @@
   <symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
   <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol>
   <symbol id="i-circle-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="1" /></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1" /> <rect x="5" y="3" width="5" height="18" rx="1" /></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
 </svg>
 <!-- ICON-SPRITE:END -->
 
@@ -110,11 +112,11 @@
 
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
-    <!-- LOGO SLOT: swap assets/images/etek-logo.png (light) and
-         assets/images/etek-logo-dark.png (dark) to change the logo. -->
+    <!-- LOGO SLOT: the mark is assets/images/etek-mark.svg; the name beside it
+         is live text so it stays sharp and follows the theme. -->
     <a class="logo-slot" href="#top" aria-label="ETEK Engineering Solutions, home">
-      <img class="logo-slot__light" src="assets/images/etek-logo.png" alt="ETEK Engineering Solutions" width="389" height="240">
-      <img class="logo-slot__dark" src="assets/images/etek-logo-dark.png" alt="" width="389" height="240">
+      <img class="logo-slot__mark" src="assets/images/etek-mark.svg" alt="" width="389" height="194">
+      <span class="logo-slot__name">Engineering<br>Solutions</span>
     </a>
 
     <!-- Menu targets are in-page anchors while the home page is the only page
@@ -142,28 +144,134 @@
   <!-- ==================================================================
        1. Hero
        ================================================================== -->
-  <section class="hero" id="top">
-    <div class="hero__media" aria-hidden="true">
-      <video class="hero__video" id="hero-video" width="1280" height="720"
-             poster="assets/video/new-intro-poster.jpg"
-             autoplay muted loop playsinline preload="metadata">
-        <source src="assets/video/new-intro.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero__veil" aria-hidden="true"></div>
+  <section class="hero hero--noah" id="top" aria-labelledby="hero-title">
     <div class="container hero__inner">
       <div class="hero__copy">
-        <p class="badge badge--inverse">
+        <p class="badge badge--soft">
           <span class="badge__dot" aria-hidden="true"></span>
-          Intelligent systems for connected operations
+          Software for shipping and logistics
         </p>
 
-        <h1 class="hero__title">Smart engineering.<br><em>Smarter solutions.</em></h1>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Great software</span>
+          <span class="hero__line"><em>is engineered.</em></span>
+        </h1>
 
         <p class="lead hero__lead">
-          Data becomes structure. We design software, AI, ERP, web and mobile systems
-          that connect operations into one intelligent platform.
+          ETEK engineers Noah Port, Noah Depo and Noah Hub: operational software for
+          the ports, container depots and logistics companies that keep cargo moving.
         </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#products">
+            Explore Noah
+            <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+          <a class="btn btn--secondary btn--lg" href="#contact">Talk to our team</a>
+        </div>
+      </div>
+
+      <!-- A drawn terminal plan, not a product screenshot. The ordered list carries
+           the same journey as text, so the plan itself is hidden from assistive
+           technology. Its timing lives in sections.css under "Terminal plan". -->
+      <div class="ops" id="hero-ops">
+        <div class="ops__head">
+          <p class="ops__title">Container journey</p>
+          <p class="ops__note">Illustrative</p>
+          <button class="ops__toggle" type="button" id="ops-toggle" aria-label="Pause the animation" hidden>
+            <svg class="icon ops__icon-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
+            <svg class="icon ops__icon-play" aria-hidden="true"><use href="#i-play"></use></svg>
+          </button>
+        </div>
+
+        <div class="ops__map" aria-hidden="true">
+          <svg class="ops__plan" viewBox="0 0 640 320" focusable="false">
+            <defs>
+              <pattern id="ops-cells" width="16" height="9" patternUnits="userSpaceOnUse">
+                <rect class="ops-cell" x="0.75" y="0.75" width="14.5" height="7.5" rx="1"></rect>
+              </pattern>
+            </defs>
+
+            <rect class="ops-water" width="640" height="100"></rect>
+            <path class="ops-wave" d="M18 16h34M470 18h46M552 44h52M458 72h38M532 86h60M14 90h26"></path>
+
+            <rect class="ops-apron" y="100" width="640" height="52"></rect>
+            <path class="ops-rail" d="M0 108H640M0 144H640"></path>
+            <path class="ops-quay" d="M0 100H640"></path>
+
+            <path class="ops-lane" d="M246 100V231M0 231H640M470 152V320"></path>
+
+            <path class="ops-hull" d="M64 30H372Q408 36 430 57Q408 78 372 84H64Q56 57 64 30Z"></path>
+            <rect class="ops-bridge" x="72" y="38" width="14" height="38" rx="2"></rect>
+            <rect fill="url(#ops-cells)" x="96" y="36" width="256" height="36"></rect>
+
+            <rect fill="url(#ops-cells)" x="48" y="171" width="176" height="45"></rect>
+            <rect fill="url(#ops-cells)" x="272" y="171" width="176" height="45"></rect>
+            <rect fill="url(#ops-cells)" x="48" y="243" width="176" height="45"></rect>
+            <rect fill="url(#ops-cells)" x="272" y="243" width="176" height="45"></rect>
+            <path class="ops-stock" d="M64 180h16v8H64zM128 189h16v8h-16zM176 171h16v8h-16zM288 252h16v8h-16zM96 261h16v8H96zM416 270h16v8h-16zM336 180h16v8h-16zM192 279h16v8h-16z"></path>
+
+            <rect class="ops-shed" x="492" y="170" width="46" height="40" rx="2"></rect>
+            <rect class="ops-shed" x="492" y="252" width="46" height="40" rx="2"></rect>
+            <rect class="ops-booth" x="556" y="207" width="14" height="10" rx="1.5"></rect>
+            <rect class="ops-booth" x="556" y="245" width="14" height="10" rx="1.5"></rect>
+            <path class="ops-barrier" d="M563 217V245"></path>
+
+            <rect class="ops-slot" x="352" y="207" width="16" height="9" rx="1"></rect>
+
+            <path class="ops-route" d="M246 57V231H640"></path>
+            <path class="ops-trace" d="M246 57V231H640" pathLength="100"></path>
+
+            <g class="ops-crane">
+              <path d="M166 16V146"></path>
+              <rect x="154" y="104" width="24" height="42" rx="2"></rect>
+            </g>
+            <g class="ops-crane">
+              <path d="M246 16V146"></path>
+              <rect x="234" y="104" width="24" height="42" rx="2"></rect>
+            </g>
+            <g class="ops-crane">
+              <path d="M326 16V146"></path>
+              <rect x="314" y="104" width="24" height="42" rx="2"></rect>
+            </g>
+
+            <g class="ops-box">
+              <rect x="-9" y="-5" width="18" height="10" rx="1.5"></rect>
+            </g>
+            <rect class="ops-trolley" x="236" y="50" width="20" height="14" rx="2"></rect>
+          </svg>
+          <span class="ops__tag ops__tag--berth">Berth</span>
+          <span class="ops__tag ops__tag--quay">Quay</span>
+          <span class="ops__tag ops__tag--yard">Yard</span>
+          <span class="ops__tag ops__tag--gate">Gate</span>
+        </div>
+
+        <ol class="ops__stages" aria-label="One container's journey, from vessel to yard release">
+            <li class="ops__stage">
+              <span class="ops__body">
+                <span class="ops__name">Berth Planning</span>
+                <span class="ops__text">Vessel and cargo operations</span>
+              </span>
+            </li>
+            <li class="ops__stage">
+              <span class="ops__body">
+                <span class="ops__name">Quay Handling</span>
+                <span class="ops__text">Real-time container tracking</span>
+              </span>
+            </li>
+            <li class="ops__stage">
+              <span class="ops__body">
+                <span class="ops__name">Yard Control</span>
+                <span class="ops__text">Live container inventory</span>
+              </span>
+            </li>
+            <li class="ops__stage">
+              <span class="ops__body">
+                <span class="ops__name">Gate Release</span>
+                <span class="ops__text">Booking to yard release</span>
+              </span>
+            </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -179,11 +287,21 @@
           <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
           <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
           <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
-          <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>Nippon</span>
           <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
           <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
           <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
-          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>Nippon</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>Noah Depo</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-ship"></use></svg>Noah Port</span>
+          <span class="marquee__item" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg>Noah Hub</span>
         </div>
       </div>
     </div>
@@ -545,23 +663,6 @@
             </div>
           </article>
 
-          <article class="card card--inverse product-card carousel__slide">
-            <div class="product-card__media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/product-nippon-800.webp 800w, assets/images/product-nippon-1024.webp 1024w" sizes="(max-width: 46rem) 84vw, 27rem">
-                <img src="assets/images/product-nippon-800.jpg" srcset="assets/images/product-nippon-800.jpg 800w, assets/images/product-nippon-1024.jpg 1024w" sizes="(max-width: 46rem) 84vw, 27rem" width="1024" height="683" alt="A Nippon Paint decorator rolling pale blue paint onto an interior wall, with tubs of Vinilex, Odour-less and Spot-less Plus paint in the foreground." loading="lazy" decoding="async">
-              </picture>
-              <p class="badge badge--inverse product-card__tag">ERP delivery</p>
-            </div>
-            <div class="product-card__body">
-              <h4 class="product-card__title">Nippon</h4>
-              <p class="product-card__text">
-                An ERP system engineered by ETEK for a Sri Lankan paint company,
-                bringing its day-to-day business operations together in one platform.
-              </p>
-              <p class="product-card__meta">ERP for the paint industry</p>
-            </div>
-          </article>
         </div>
 
         <div class="carousel__controls">
@@ -833,8 +934,8 @@
         </ul>
 
         <div class="cluster" style="margin-block-start: var(--space-8);">
-          <a class="btn btn--primary btn--lg" href="#contact">
-            View Careers
+          <a class="btn btn--primary btn--lg" href="#open-role">
+            See the open role
             <svg class="icon icon--sm icon--arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
           </a>
           <a class="btn btn--secondary btn--lg" href="mailto:info@etek.lk?subject=Careers%20at%20ETEK">
@@ -842,9 +943,6 @@
             info@etek.lk
           </a>
         </div>
-        <p class="text-muted" style="margin-block-start: var(--space-4); font-size: var(--text-base);">
-          Open roles will be listed on the Careers page.
-        </p>
       </div>
 
       <div class="careers__collage">
@@ -865,6 +963,109 @@
           <img src="assets/images/careers-review-800.jpg" srcset="assets/images/careers-review-800.jpg 800w, assets/images/careers-review-1600.jpg 1600w" sizes="(max-width: 62rem) 44vw, 20vw" width="1600" height="1050" alt="Team discussing work around a meeting table." loading="lazy" decoding="async">
         </picture>
       </div>
+
+      <article class="vacancy" id="open-role" aria-labelledby="vacancy-title">
+        <div class="vacancy__head">
+          <div>
+            <p class="badge badge--soft">
+              <span class="badge__dot" aria-hidden="true"></span>
+              Open position
+            </p>
+            <h3 class="vacancy__title" id="vacancy-title">Software Engineering Trainer</h3>
+            <ul class="vacancy__meta">
+              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-map-pin"></use></svg>Ibbagamuwa, Sri Lanka</li>
+              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-graduation-cap"></use></svg>Fresh graduates and candidates with internship experience are encouraged to apply</li>
+            </ul>
+          </div>
+          <div class="vacancy__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:info@etek.lk?subject=Software%20Engineering%20Trainer%20application">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"></use></svg>
+              Send your CV
+            </a>
+            <a class="btn btn--secondary btn--lg" href="tel:+94704456010">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-phone"></use></svg>
+              Call Sudheera
+            </a>
+          </div>
+        </div>
+
+        <p class="vacancy__summary">
+          We are looking for a passionate and knowledgeable Software Engineering Trainer
+          to join our team. The ideal candidate should have a strong interest in software
+          development, technical knowledge, and the ability to guide students and
+          beginners in learning modern software development technologies.
+        </p>
+
+        <p class="vacancy__skills-label" id="vacancy-skills">Knowledge or practical experience in</p>
+        <ul class="vacancy__skills" aria-labelledby="vacancy-skills">
+          <li>PHP and MySQL</li>
+          <li>HTML5 and CSS3</li>
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Python</li>
+          <li>Flutter (mobile applications)</li>
+        </ul>
+
+        <details class="accordion__item vacancy__details">
+          <summary class="accordion__summary">
+            <span>Full role details</span>
+            <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+          </summary>
+          <div class="vacancy__body">
+            <p class="vacancy__intro">
+              The selected candidate will be responsible for conducting practical training
+              sessions, explaining programming concepts, guiding learners through hands-on
+              projects, and helping them develop real-world software engineering skills.
+            </p>
+            <div class="vacancy__columns">
+            <div>
+              <h4 class="vacancy__heading">Key responsibilities</h4>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Conduct practical software engineering training sessions</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Teach programming concepts and software development fundamentals</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Guide students through hands-on coding exercises and projects</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Explain database design, development and management</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Assist learners in building web and mobile applications</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Prepare learning materials, practical exercises and project assignments</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Support students in debugging, problem-solving and improving coding practices</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Introduce industry-relevant development practices and real-world project workflows</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="vacancy__heading">Qualifications and experience</h4>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Educational background in Software Engineering, Computer Science, IT or a related field</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Good understanding of programming fundamentals and web or mobile development</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Strong communication and knowledge-sharing skills</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Ability to explain technical concepts in a simple and understandable manner</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>A passion for teaching, mentoring and continuous learning</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="vacancy__heading">What we offer</h4>
+              <ul class="feature-list">
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Opportunity to work with a growing software development company</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Practical exposure to real-world ERP and mobile application projects</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Opportunity to improve technical and teaching skills</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Experience working with industry-relevant technologies</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>A collaborative and supportive working environment</li>
+                <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Opportunities for professional growth and career development</li>
+              </ul>
+            </div>
+            </div>
+            <p class="vacancy__note">
+              <strong>Additional advantage:</strong> candidates who have successfully
+              completed a software engineering internship, or have practical experience
+              working on real-world software development projects, will be given preference.
+            </p>
+            <p class="vacancy__apply">
+              <strong>How to apply:</strong> send your CV to
+              <a href="mailto:info@etek.lk?subject=Software%20Engineering%20Trainer%20application">info@etek.lk</a>
+              or contact Sudheera on <a href="tel:+94704456010">+94 704 456 010</a>.
+            </p>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
@@ -909,7 +1110,7 @@
           </div>
           <div class="about__fact">
             <dt class="about__fact-label">Products</dt>
-            <dd class="about__fact-value">Noah Depo, Noah Port, Noah Hub, Nippon</dd>
+            <dd class="about__fact-value">Noah Depo, Noah Port, Noah Hub</dd>
           </div>
           <div class="about__fact">
             <dt class="about__fact-label">Open</dt>
@@ -1069,7 +1270,8 @@
       <div>
         <!-- LOGO SLOT (footer): dark variant of the same lockup. -->
         <a class="logo-slot" href="#top" aria-label="ETEK Engineering Solutions, home">
-          <img src="assets/images/etek-logo-dark.png" alt="ETEK Engineering Solutions" width="389" height="240" style="height: 2.75rem;">
+          <img class="logo-slot__mark" src="assets/images/etek-mark.svg" alt="" width="389" height="194">
+          <span class="logo-slot__name">Engineering<br>Solutions</span>
         </a>
         <p style="margin-block-start: var(--space-5); max-width: 30ch;">
           Software engineering and technology solutions for local and international
@@ -1113,7 +1315,6 @@
           <li><a href="#products">Noah Depo</a></li>
           <li><a href="#products">Noah Port</a></li>
           <li><a href="#products">Noah Hub</a></li>
-          <li><a href="#products">Nippon</a></li>
         </ul>
 
         <h3 class="footer-heading" style="margin-block-start: var(--space-8);">Contact</h3>

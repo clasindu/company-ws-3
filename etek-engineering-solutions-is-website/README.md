@@ -36,7 +36,7 @@ assets/
     components.css          reusable components (buttons, cards, nav, tabs...)
     sections.css            one block per home page section
   js/
-    main.js                 nav, theme, tabs, carousel, video, scroll reveal
+    main.js                 nav, theme, tabs, carousel, hero plan, products video, scroll reveal
   fonts/                    Inter woff2, latin and latin-ext subsets
   icons/
     sprite.svg              Lucide icon sprite (source of truth)
@@ -48,12 +48,21 @@ tools/
   inline-sprite.py          copies sprite.svg into the HTML pages
 ```
 
-## The hero intro video
+## The hero
 
-The hero plays `assets/video/intro.mp4`: a silent, looping
-1280x720 H.264 brand intro (~3.4 MB). The generator watermark is cropped out, and
-colour/contrast are lifted for a cleaner look. Poster frames are
-`assets/images/intro-poster-*`.
+The hero has no video. Copy sits beside `.ops`, an ink panel holding a drawn plan of
+a container terminal: one container leaves the vessel, crosses the quay, is stored in
+the yard and is released through the gate. It is inline SVG and CSS, with no image
+request, so the headline is the largest paint.
+
+- The four stages under the plan use terminal operations terms rather than product
+  names. They are real text in an ordered list; the plan itself is `aria-hidden`.
+- All motion is CSS on one 16s clock (`--ops-loop` in `sections.css`). The percentages
+  in the `ops-box` and `ops-trace` keyframes must change together.
+- `initHeroOps` in `main.js` only adds the pause button (WCAG 2.2.2) and holds the
+  animation while it is off screen.
+- It is labelled "Illustrative" because it is not a Noah screenshot. When real
+  product screens are available, one of them is the better thing to show here.
 
 ## The products video
 
@@ -152,16 +161,15 @@ reach an accessible contrast ratio.
 
 ## Logo
 
-The supplied logo had a white background; it has been made transparent so only
-the letterforms remain. Two variants are swapped by CSS:
+The header and footer use a horizontal lockup inside `.logo-slot`: the mark from
+`assets/images/etek-mark.svg`, then "Engineering Solutions" as live text. The
+supplied stacked logo shrank that tagline to about 4px at header height, so the
+name now sits beside the mark at 13px and follows the theme colours.
 
-- `assets/images/etek-logo.png` — light backgrounds
-- `assets/images/etek-logo-dark.png` — dark backgrounds and the footer, with
-  the thin tagline tinted so it stays legible
-
-Both header and footer wrap the logo in `.logo-slot`. To change the logo,
-replace those two files; no CSS changes needed. If you supply a vector version
-of the logo, drop in an SVG and update the two `<img>` tags.
+The SVG was redrawn from the supplied 389px PNG and checked against it by overlay.
+If a master vector exists, replace `etek-mark.svg` with it; no CSS changes needed.
+`etek-logo.png` and `etek-logo-dark.png` are the supplied originals, kept for
+reference and no longer used by the page.
 
 ## Icons
 
@@ -192,6 +200,8 @@ markup will pick them up unchanged.
 - Tabs follow the ARIA tabs pattern with arrow key support; the accordion uses
   native `<details>`.
 - `prefers-reduced-motion` disables scroll reveal, the marquee, floating
-  animations, and holds the products video on its poster frame.
+  animations and the hero plan, and holds the products video on its poster frame.
 - The products video is decorative and silent: the same information is in the
   surrounding copy and the product cards.
+- The hero plan is decorative: its stage list carries the same journey as text, and
+  a pause button is always available while it animates.
