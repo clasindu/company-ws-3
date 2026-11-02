@@ -18,9 +18,6 @@ Pexels entries are identified by their photo id: the original sits at
 - `careers-studio-*.jpg|webp` - Redd F, Unsplash (`photo-1556761175-b413da4baf72`)
 - `dashboard-erp-overview-*.jpg|webp` - Luke Chesser, Unsplash (`photo-1551288049-bebda4e38f71`)
 - `engineering-team-desks-*.jpg|webp` - Alvaro Reyes, Unsplash (`photo-1531482615713-2afd69097998`)
-- `product-nippon-*.jpg|webp` - supplied by ETEK. Nippon Paint brand imagery,
-  used with the client's permission. Not a placeholder: available at 800w and
-  1024w only, because that is the size of the supplied file.
 - `product-noah-depo-*.jpg|webp` - Guillaume Bolduc, Unsplash (`photo-1493946740644-2d8a1f1a6aff`)
 - `product-noah-hub-*.jpg|webp` - Ollie Craig, Pexels (`7519262`)
 - `product-noah-port-*.jpg|webp` - Andy Li, Unsplash (`photo-1578575437130-527eed3abbec`)
@@ -30,17 +27,16 @@ Pexels entries are identified by their photo id: the original sits at
   racks with ethernet cabling and LED status lights for the
   "Let's build your solution" band. Graded toward Baltic teal under the overlay.
 - `hero-workstation-*.jpg|webp` - supplied reference still (kept as fallback art).
-  Home hero background now plays `../video/intro_new.mp4`.
-- `intro-new-poster-*.jpg|webp` - first frames of `intro_new.mp4` for the hero
-  poster attribute.
+- `intro-new-poster-*.jpg|webp` - first frames of `intro_new.mp4`; kept for reuse.
 - `intro-poster-*.jpg|webp` - earlier brand-intro poster frames (kept for reuse).
 - `port-terminal-operation-poster-*.jpg|webp` - supplied by ETEK. First frame of
   the products video, not a placeholder.
 
 ## Video
 
-- `../video/intro_new.mp4` - supplied by ETEK. Full-bleed looping hero background
-  (muted, autoplay). Copied from `assets/video/intro_new.mp4`.
+- `../video/new-intro.mp4` - supplied by ETEK. Not played on the page; kept for reuse.
+- `../video/intro_new.mp4` - supplied by ETEK. Earlier hero background; kept for
+  reuse. Copied from `assets/video/intro_new.mp4`.
 - `../video/intro.mp4` - earlier web encode of the brand intro; kept for reuse.
 - `../video/port-terminal-operation.mp4` - supplied by ETEK. Three clips (vessel
   arrival, container discharge, prime mover to yard) cut into one 25s sequence,

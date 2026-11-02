@@ -397,33 +397,33 @@
 }
 
 /* Logo slot -------------------------------------------------------------
-   The client logo lives here. Swap the two <img> files (light and dark)
-   and nothing else needs to change. */
+   A horizontal lockup: the vector mark, then the name as live text. The
+   name sits level with the TEK letterforms, which fill the lower 78% of
+   the mark, and carries its colour from the theme. */
 .logo-slot {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: 0.625rem;
   flex: none;
   margin-inline-end: auto;
   border-radius: var(--radius-sm);
   text-decoration: none;
 }
 
-.logo-slot img {
+.logo-slot__mark {
   width: auto;
   height: 2.25rem;
   background: none;
 }
 
-.logo-slot__dark {
-  display: none;
-}
-
-:root[data-theme='dark'] .logo-slot__light {
-  display: none;
-}
-
-:root[data-theme='dark'] .logo-slot__dark {
-  display: block;
+.logo-slot__name {
+  padding-inline-start: 0.625rem;
+  border-inline-start: var(--border-width) solid var(--color-border-strong);
+  color: var(--color-text-strong);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .site-nav {
@@ -703,6 +703,10 @@
     width: 100%;
     justify-content: center;
     gap: var(--space-6) var(--space-8);
+  }
+
+  .marquee__item[aria-hidden='true'] {
+    display: none;
   }
 }
 
@@ -1086,6 +1090,20 @@
 .site-footer a:hover {
   color: var(--brand-white);
   text-decoration: underline;
+}
+
+.site-footer .logo-slot:hover {
+  text-decoration: none;
+}
+
+.site-footer .logo-slot__mark {
+  height: 2.75rem;
+}
+
+.site-footer .logo-slot__name {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--brand-white);
+  font-size: 1rem;
 }
 
 .footer-grid {

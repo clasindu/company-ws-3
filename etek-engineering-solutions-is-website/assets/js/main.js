@@ -217,8 +217,38 @@
     bindAutoplayVideo(document.getElementById('vessel'), document.getElementById('vessel-video'));
   }
 
-  function initHeroVideo() {
-    bindAutoplayVideo(document.querySelector('.hero'), document.getElementById('hero-video'));
+  /* ---------------------------------------------------------------------
+     Hero terminal plan - the motion is CSS; this adds the pause control and
+     holds it while off screen. Under reduced motion there is nothing to run.
+     --------------------------------------------------------------------- */
+  function initHeroOps() {
+    var ops = document.getElementById('hero-ops');
+    var toggle = document.getElementById('ops-toggle');
+    if (!ops || !toggle || prefersReducedMotion) return;
+
+    var userPaused = false;
+    var isOnScreen = true;
+
+    function apply() {
+      ops.classList.toggle('is-paused', userPaused || !isOnScreen);
+      toggle.classList.toggle('is-paused', userPaused);
+      toggle.setAttribute('aria-label', userPaused ? 'Play the animation' : 'Pause the animation');
+    }
+
+    toggle.addEventListener('click', function () {
+      userPaused = !userPaused;
+      apply();
+    });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        isOnScreen = entries[0].isIntersecting;
+        apply();
+      }, { threshold: 0.15 }).observe(ops);
+    }
+
+    toggle.hidden = false;
+    apply();
   }
 
   /* ---------------------------------------------------------------------
@@ -227,7 +257,7 @@
   function initReveal() {
     var targets = document.querySelectorAll(
       '.section-head, .bento > *, .tabs, .products__stage, .carousel, .why__media,' +
-      ' .accordion, .process .step, .careers__collage, .careers__points, .about__stack,' +
+      ' .accordion, .process .step, .careers__collage, .careers__points, .vacancy, .about__stack,' +
       ' .about__facts, .contact-tile, .contact__panel, .build-cta__inner > *'
     );
     if (!targets.length) return;
@@ -303,7 +333,7 @@
     initTabs();
     initCarousel();
     initVesselVideo();
-    initHeroVideo();
+    initHeroOps();
     initReveal();
     initNavHighlight();
   }
